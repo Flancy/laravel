@@ -58,6 +58,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
+                                <li><i class="fa fa-money" aria-hidden="true"></i> Баланс: {{ $debit }}</li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Выйти</a></li>
                             </ul>
                         </li>

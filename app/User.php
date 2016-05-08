@@ -24,6 +24,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function debit()
+    {
+        return $this->hasOne('App\Debit');
+    }
+
     public function updateCompanyInfo($id, $data) {
         $data = array_except($data, '_token');
         $data = array_except($data, 'password_confirmation');

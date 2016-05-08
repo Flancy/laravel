@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Auth;
 use Illuminate\Http\Request;
 use App\GenerateUrl;
+use App\Debit;
 
 class AuthController extends Controller
 {
@@ -48,30 +49,62 @@ class AuthController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'fio' => 'required|max:255|min:10',
-            'phone' => 'required|max:24|min:4',
-            'email' => 'required|email|max:255|min:6|unique:users',
-            'login' => 'required|max:64|min:4|unique:users',
-            'password' => 'required|min:6',
-            'name-company' => 'required|max:64',
-            'ogrn' => 'required|max:128',
-            'inn' => 'required|max:128',
-            'yur-adress' => 'required|max:1024',
-            'fact-adress' => 'required|max:1024',
-            'phone-company' => 'required|max:24|min:4',
-            'fio-boss' => 'required|max:255',
-            'description-company' => 'required|max:246',
-            'name-bank' => 'required|max:64',
-            'bik' => 'required|max:128',
-            'k-c' => 'required|max:64',
-            'p-c' => 'required|max:64',
-            'name-license' => 'required|max:128',
-            'date' => 'required|max:64'
-        ]);
-    }
+     public function showRegistrationForm(GenerateUrl $urlModel, $url)
+     {
+         if (property_exists($this, 'registerView')) {
+             return view($this->registerView);
+         }
+
+         $url = url('/register/').'/'.$url;
+
+         $check = $urlModel->checkUrl($url);
+
+         return view('auth.register', ['url' => $url]);
+
+     }
+
+     public function register(Request $request, Debit $debitModel)
+     {
+         $validator = $this->validator($request->all());
+
+         if ($validator->fails()) {
+             $this->throwValidationException(
+                 $request, $validator
+             );
+         }
+
+         Auth::guard($this->getGuard())->login($this->create($request->all()));
+
+         $debitModel->user_id = Auth::user()->id;
+         $debitModel->save();
+
+         return redirect($this->redirectPath());
+     }
+
+     protected function validator(array $data)
+     {
+         return Validator::make($data, [
+             'fio' => 'required|max:255|min:10',
+             'phone' => 'required|max:24|min:4',
+             'email' => 'required|email|max:255|min:6|unique:users',
+             'login' => 'required|max:64|min:4|unique:users',
+             'password' => 'required|min:6',
+             'name-company' => 'required|max:64',
+             'ogrn' => 'required|max:128',
+             'inn' => 'required|max:128',
+             'yur-adress' => 'required|max:1024',
+             'fact-adress' => 'required|max:1024',
+             'phone-company' => 'required|max:24|min:4',
+             'fio-boss' => 'required|max:255',
+             'description-company' => 'required|max:246',
+             'name-bank' => 'required|max:64',
+             'bik' => 'required|max:128',
+             'k-c' => 'required|max:64',
+             'p-c' => 'required|max:64',
+             'name-license' => 'required|max:128',
+             'date' => 'required|max:64'
+         ]);
+     }
 
     /**
      * Create a new user instance after a valid registration.

@@ -7,8 +7,6 @@ use Carbon\Carbon;
 
 class GenerateUrl extends Model
 {
-    protected $table = 'generate_urls';
-
     protected $fillable = ['id', 'url'];
 
     public function deleteOldUrl()

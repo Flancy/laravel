@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lead extends Model
 {
-    protected $table = 'leads';
-
     protected $fillable = ['fio', 'name-task', 'description', 'summ'];
 
     public function createLead($data, $url) {

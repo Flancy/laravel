@@ -12,6 +12,8 @@
 */
 Route::auth();
 
+Route::get('register/{id}', 'Auth\AuthController@showRegistrationForm');
+
 Route::group(['as' => 'home'], function()
 {
     Route::get('/home', 'HomeController@index');

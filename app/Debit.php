@@ -6,7 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Debit extends Model
 {
-    protected $table = 'debits';
-
-    
+    protected $fillable = ['user_id'];
 }
