@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\GenerateUrl;
 use App\Http\Requests;
+use App\User;
 use Gate;
+use Auth;
 
 class AdminController extends Controller
 {
@@ -98,7 +100,10 @@ class AdminController extends Controller
          }
          $urlModel->deleteOldUrl();
 
-         return view('admin');
+         $idUser = Auth::user()->id;
+         $debitUser = User::find($idUser)->debit->debit;
+
+         return view('admin', ['debit' => $debitUser]);
      }
 
      public function generateUrlPage(Request $request, GenerateUrl $urlModel)

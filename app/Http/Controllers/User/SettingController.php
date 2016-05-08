@@ -8,6 +8,7 @@ use Validator;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
+use Auth;
 
 class SettingController extends Controller
 {
@@ -24,7 +25,11 @@ class SettingController extends Controller
     public function index(Request $request)
     {
         $data = $request->user();
-        return view('user.setting')->with('data', $data);
+
+        $idUser = Auth::user()->id;
+        $debitUser = User::find($idUser)->debit->debit;
+
+        return view('user.setting', ['data' => $data, 'debit' => $debitUser]);
     }
 
     /**
