@@ -16,10 +16,14 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     protected $idUser;
+     protected $debitUser;
 
      public function __construct()
      {
          $this->middleware('auth');
+         $id = $this->idUser = Auth::user()->id;
+         $this->debitUser = User::find($id)->debit->debit;
      }
 
      public function index()
@@ -100,10 +104,7 @@ class AdminController extends Controller
          }
          $urlModel->deleteOldUrl();
 
-         $idUser = Auth::user()->id;
-         $debitUser = User::find($idUser)->debit->debit;
-
-         return view('admin', ['debit' => $debitUser]);
+         return view('admin', ['debit' => $this->debitUser]);
      }
 
      public function generateUrlPage(Request $request, GenerateUrl $urlModel)
@@ -113,11 +114,10 @@ class AdminController extends Controller
          $urlModel->addGenerateUrl($url);
          if($urlModel)
          {
-             return view('/admin')
-                ->with('url', $url);
+             return view('/admin', ['url' => $url, 'debit' => $this->debitUser]);
          }
          else {
-             return view('/admin');
+             return view('/admin', ['debit' => $this->debitUser]);
          }
      }
 }

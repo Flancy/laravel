@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
-use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-use Auth;
 use Illuminate\Http\Request;
+use Auth;
+use Validator;
+use App\User;
 use App\GenerateUrl;
 use App\Debit;
 
@@ -77,6 +77,8 @@ class AuthController extends Controller
 
          $debitModel->user_id = Auth::user()->id;
          $debitModel->save();
+
+         $this->sendEmailReminder($request, Auth::user()->id);
 
          return redirect($this->redirectPath());
      }
