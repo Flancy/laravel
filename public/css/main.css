@@ -1,0 +1,448 @@
+@import "fonts/roboto.css";
+body {
+  background-color: #fafafa;
+  font-family: "Roboto";
+  font-weight: normal;
+}
+input::-webkit-input-placeholder {
+  color: #999;
+}
+input:-moz-placeholder {
+  color: #999;
+}
+.navbar-default {
+  background-color: #212121;
+  border: none;
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.3);
+}
+.navbar-default .navbar-brand {
+  height: auto;
+  color: #fff;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:active {
+  color: #fff;
+  background-color: rgba(255,255,255,0.1);
+  border-bottom: 4px solid transparent;
+}
+.navbar-default .navbar-nav >li >a {
+  color: #fff;
+}
+.navbar-default .navbar-nav >li >a:hover,
+.navbar-default .navbar-nav >li >a:focus,
+.navbar-default .navbar-nav >li >a:active {
+  color: #fff;
+  background-color: rgba(255,255,255,0.1);
+  border-bottom: 4px solid transparent;
+}
+.navbar-default .navbar-right >li >a {
+  border-bottom: 4px solid #dd2828;
+}
+.navbar-default .navbar-right >li >a:hover,
+.navbar-default .navbar-right >li >a:focus,
+.navbar-default .navbar-right >li >a:active {
+  color: #fff;
+  background-color: rgba(255,255,255,0.1);
+  border-color: #dd2828 !important;
+}
+.navbar-default .navbar-right >li >a span:hover,
+.navbar-default .navbar-right >li >a span:focus,
+.navbar-default .navbar-right >li >a span:active {
+  border-bottom: 1px dashed #ccc;
+}
+.navbar-default .navbar-nav>.open >a {
+  color: #fff !important;
+  background-color: rgba(255,255,255,0.1) !important;
+  border-color: #dd2828 !important;
+}
+.register h1,
+.register-lead h1,
+.login h1,
+.dashboard-company h1,
+.settings-company h1 {
+  margin-bottom: 30px;
+  font-family: "Roboto";
+  font-weight: 100;
+  color: #666;
+  text-align: center;
+}
+.register .register-form,
+.register-lead .register-form {
+  padding: 30px 0px;
+  background-color: #fff;
+  box-shadow: 0px 0px 12px rgba(0,0,0,0.6);
+}
+.register .register-form .form-head,
+.register-lead .register-form .form-head {
+  padding: 0px 25px 15px 25px;
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 22px;
+  color: #666;
+  border-bottom: 1px solid #ccc;
+}
+.register .register-form .form-body,
+.register-lead .register-form .form-body {
+  padding: 10px 40px 10px 40px;
+}
+.register .register-form .form-body input,
+.register-lead .register-form .form-body input {
+  display: block;
+  width: 100%;
+  margin: 0 auto 10px auto;
+  padding: 5px 0px;
+  border: none;
+  outline: none;
+  border-bottom: 1px dashed #999;
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 18px;
+  color: #666;
+}
+.register .register-form .form-body input[name='ogrn'],
+.register-lead .register-form .form-body input[name='ogrn'],
+.register .register-form .form-body input[name='inn'],
+.register-lead .register-form .form-body input[name='inn'] {
+  display: inline-block;
+  width: 49%;
+  margin: 0px 10px 10px 0px;
+}
+.register .register-form .form-footer,
+.register-lead .register-form .form-footer {
+  text-align: center;
+}
+.register .register-form .form-footer input[type='submit'],
+.register-lead .register-form .form-footer input[type='submit'] {
+  display: inline-block;
+  border: none;
+  margin: 15px auto;
+  padding: 15px 30px;
+  color: #fff;
+  outline: none;
+  background-color: #64dd17;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 16px;
+}
+.register .register-form .form-footer input[type='submit']:hover,
+.register-lead .register-form .form-footer input[type='submit']:hover,
+.register .register-form .form-footer input[type='submit']:focus,
+.register-lead .register-form .form-footer input[type='submit']:focus,
+.register .register-form .form-footer input[type='submit']:active,
+.register-lead .register-form .form-footer input[type='submit']:active {
+  background-color: #76ff03;
+  box-shadow: 0px 6px 14px rgba(0,0,0,0.3);
+}
+.login .login-form {
+  margin: 0 auto;
+  padding: 0;
+  background-color: #fff;
+  box-shadow: 0px 0px 12px rgba(0,0,0,0.6);
+}
+.login .login-form .form-head {
+  margin-bottom: 20px;
+  padding: 15px 0px;
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 22px;
+  color: #666;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+.login .login-form .form-head p {
+  margin: 0;
+}
+.login .login-form .form-body .row {
+  margin-bottom: 25px;
+}
+.login .login-form .form-body .row label {
+  line-height: 28px;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 16px;
+}
+.login .login-form .form-body .row input {
+  width: 100%;
+  text-align: center;
+  border: none;
+  outline: none;
+  border-bottom: 1px dashed #999;
+  color: #666;
+}
+.login .login-form .form-body .row input:focus {
+  border-bottom-color: #76ff03;
+}
+.login .login-form .form-footer input {
+  display: block;
+  width: 100%;
+  border: none;
+  margin: 15px auto 0px;
+  padding: 15px 30px;
+  color: #fff;
+  outline: none;
+  background-color: #64dd17;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 16px;
+}
+.login .login-form .form-footer input:hover,
+.login .login-form .form-footer input:focus,
+.login .login-form .form-footer input:active {
+  background-color: #76ff03;
+  box-shadow: 0px 6px 14px rgba(0,0,0,0.3);
+}
+.login .login-form .form-footer a {
+  padding: 0px;
+  margin: 6px 0px;
+  line-height: normal;
+  font-family: "Roboto";
+  font-weight: normal;
+}
+.login .login-form .form-footer a:hover,
+.login .login-form .form-footer a:focus,
+.login .login-form .form-footer a:active {
+  text-decoration: none;
+  border-bottom: 1px dashed #76ff03;
+}
+.dashboard-company .control-panel .wrapper,
+.dashboard-company .body-panel .wrapper,
+.settings-company .control-panel .wrapper,
+.settings-company .body-panel .wrapper {
+  padding: 15px 0px;
+  box-shadow: 0px 0px 8px rgba(0,0,0,0.6);
+}
+.dashboard-company .control-panel .wrapper ul,
+.dashboard-company .body-panel .wrapper ul,
+.settings-company .control-panel .wrapper ul,
+.settings-company .body-panel .wrapper ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.dashboard-company .control-panel .wrapper ul li a,
+.dashboard-company .body-panel .wrapper ul li a,
+.settings-company .control-panel .wrapper ul li a,
+.settings-company .body-panel .wrapper ul li a {
+  padding: 5px 20px;
+  display: block;
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 18px;
+  color: #2f2f2f;
+}
+.dashboard-company .control-panel .wrapper ul li a.current,
+.dashboard-company .body-panel .wrapper ul li a.current,
+.settings-company .control-panel .wrapper ul li a.current,
+.settings-company .body-panel .wrapper ul li a.current {
+  padding-left: 12px;
+  border-left: 8px solid #dd2828;
+}
+.dashboard-company .control-panel .wrapper ul li a:hover,
+.dashboard-company .body-panel .wrapper ul li a:hover,
+.settings-company .control-panel .wrapper ul li a:hover,
+.settings-company .body-panel .wrapper ul li a:hover,
+.dashboard-company .control-panel .wrapper ul li a:focus,
+.dashboard-company .body-panel .wrapper ul li a:focus,
+.settings-company .control-panel .wrapper ul li a:focus,
+.settings-company .body-panel .wrapper ul li a:focus,
+.dashboard-company .control-panel .wrapper ul li a:active,
+.dashboard-company .body-panel .wrapper ul li a:active,
+.settings-company .control-panel .wrapper ul li a:active,
+.settings-company .body-panel .wrapper ul li a:active {
+  background-color: rgba(0,0,0,0.07);
+  text-decoration: none;
+}
+.dashboard-company .body-panel .wrapper {
+  margin-right: -15px;
+  padding-top: 0;
+}
+.dashboard-company .body-panel .wrapper .lead-head {
+  padding: 10px 20px;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 20px;
+  color: #666;
+  border-bottom: 1px solid #ccc;
+}
+.dashboard-company .body-panel .wrapper .lead-head p {
+  margin: 0;
+}
+.dashboard-company .body-panel .wrapper .row-leads {
+  overflow: hidden;
+}
+.dashboard-company .body-panel .wrapper .row-leads .cart-left {
+  padding-right: 0;
+}
+.dashboard-company .body-panel .wrapper .row-leads .cart-left img {
+  border-bottom: 1px solid #ccc;
+}
+.dashboard-company .body-panel .wrapper .row-leads .cart-right {
+  padding-left: 0;
+}
+.dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-head p {
+  padding: 15px 15px;
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 20px;
+  color: #323232;
+}
+.dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-body {
+  height: 114px;
+  max-height: 114px;
+}
+.dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-body p {
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 16px;
+  color: #555;
+}
+.dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-body .cart-lead-attribute {
+  margin: 0;
+}
+.dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-body .cart-lead-attribute i {
+  margin-right: 5px;
+  color: #555;
+}
+.dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-body .cart-lead-attribute span {
+  font-size: 14px;
+  color: #333;
+}
+.dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-footer {
+  border-bottom: 1px solid #ccc;
+}
+.dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-footer button {
+  margin-bottom: 14px;
+  display: inline-block;
+  padding: 8px 20px;
+  outline: none;
+  border: none;
+  background-color: #3bafda;
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 15px;
+  color: #fff;
+  box-shadow: 0px 0px 6px rgba(0,0,0,0.4);
+}
+.dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-footer button:focus,
+.dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-footer button:hover,
+.dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-footer button:active {
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
+}
+.settings-company .body-panel .wrapper {
+  padding: 0;
+  margin-right: -15px;
+}
+.settings-company .body-panel .wrapper .setting-head {
+  padding: 10px 20px;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 20px;
+  color: #666;
+}
+.settings-company .body-panel .wrapper .setting-head p {
+  margin: 0;
+}
+.settings-company .body-panel .wrapper .setting-head:first-of-type {
+  border-bottom: 1px solid #ccc;
+}
+.settings-company .body-panel .wrapper .settings-row .logo {
+  text-align: center;
+}
+.settings-company .body-panel .wrapper .settings-row .logo p {
+  margin: 0;
+  padding: 20px 0px 5px;
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 16px;
+}
+.settings-company .body-panel .wrapper .settings-row .logo img {
+  display: inline-block;
+  width: 80%;
+  margin-bottom: 20px;
+}
+.settings-company .body-panel .wrapper .settings-row .setting-body {
+  padding: 20px 0px 5px;
+  border-bottom: 1px solid #ccc;
+}
+.settings-company .body-panel .wrapper .settings-row .setting-body .form-group {
+  padding: 0px 0px 0px 20px;
+  margin-bottom: 5px;
+}
+.settings-company .body-panel .wrapper .settings-row .setting-body .form-group label {
+  padding: 0;
+  margin: 0;
+  color: #555;
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 16px;
+}
+.settings-company .body-panel .wrapper .settings-row .setting-body .form-group input {
+  outline: none;
+  border: none;
+  border-bottom: 1px dashed #555;
+  background-color: transparent;
+  text-overflow: ellipsis;
+  color: #555;
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 16px;
+}
+.settings-company .body-panel .wrapper .settings-row .setting-body .form-group input:focus {
+  border-bottom: 1px solid #64dd17;
+}
+.settings-company .body-panel .wrapper .settings-row .setting-body .form-group input[readonly] {
+  border: none;
+}
+.settings-company .body-panel .wrapper .settings-row .setting-body .form-group button {
+  margin-bottom: 20px;
+  outline: none;
+  padding: 0;
+  background-color: transparent;
+  color: #555;
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px dashed #555;
+}
+.settings-company .body-panel .wrapper .settings-row .setting-body .form-group button i {
+  margin-right: 5px;
+}
+.settings-company .body-panel .wrapper .settings-row .setting-body .form-group button:hover,
+.settings-company .body-panel .wrapper .settings-row .setting-body .form-group button:focus,
+.settings-company .body-panel .wrapper .settings-row .setting-body .form-group button:active {
+  border-color: transparent;
+}
+.settings-company .body-panel .wrapper .settings-row .setting-body .form-group .password {
+  min-width: 20%;
+  line-height: 35px;
+}
+.settings-company .body-panel .wrapper .settings-row .setting-body:last-of-type {
+  border: none;
+}
+.settings-company .body-panel .wrapper .settings-row .password-form .setting-body .form-group button {
+  display: inline-block;
+  border: none;
+  margin: 15px auto 0px;
+  padding: 8px 34px;
+  color: #fff;
+  outline: none;
+  background-color: #64dd17;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 16px;
+}
+.settings-company .body-panel .wrapper .settings-row .password-form .setting-body .form-group button:hover,
+.settings-company .body-panel .wrapper .settings-row .password-form .setting-body .form-group button:focus,
+.settings-company .body-panel .wrapper .settings-row .password-form .setting-body .form-group button:active {
+  background-color: #76ff03;
+  box-shadow: 0px 6px 14px rgba(0,0,0,0.3);
+}
+.settings-company .body-panel .wrapper .border-setting {
+  content: " ";
+  border-bottom: 1px solid #ccc;
+}
+@import "media.css";
+/*# sourceMappingURL=css/main.css.map */
+/*# sourceMappingURL=main.css.map */
