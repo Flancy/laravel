@@ -13,6 +13,7 @@ class Lead extends Model
 
         $this->url = $url;
         $this->fio = $data['fio'];
+        $this->email = $data['email'];
         $this->name_task = $data['name_task'];
         $this->description = $data['description'];
         $this->summ = $data['summ'];

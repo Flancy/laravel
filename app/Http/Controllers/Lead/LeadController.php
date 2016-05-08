@@ -35,6 +35,7 @@ class LeadController extends Controller
     {
         $valid = Validator::make($request->all(), [
             'fio' => 'required|max:255|min:4',
+            'email' => 'required|email|max:255|min:6|unique:leads',
             'name_task' => 'required|max:70|min:4',
             'description' => 'required|max:255|min:4',
             'summ' => 'required|max:70|min:3'

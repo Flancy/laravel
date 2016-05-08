@@ -15,6 +15,12 @@
                             <strong>{{ $errors->first('fio') }}</strong>
                         </span>
                     @endif
+                    <input type="text" class="{{ $errors->has('email') ? ' has-error' : '' }}" name="email" value="{{ old('email') }}" placeholder="Ваш электронный адрес">
+                    @if ($errors->has('email'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
                     <input type="text" class="{{ $errors->has('name_task') ? ' has-error' : '' }}" name="name_task" value="{{ old('name_task') }}" placeholder="Заголовок для заявки">
                     @if ($errors->has('name_task'))
                         <span class="help-block">
