@@ -11,4 +11,11 @@ use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 class Controller extends BaseController
 {
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
+
+    public static function generateUrl($postfix = '/')
+    {
+        $publicUrl = url('/');
+        $randomString = str_random(40);
+        return $url = $publicUrl.$postfix.$randomString;
+    }
 }

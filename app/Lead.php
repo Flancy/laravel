@@ -10,10 +10,10 @@ class Lead extends Model
 
     protected $fillable = ['fio', 'name-task', 'description', 'summ'];
 
-    public function createLead($data) {
+    public function createLead($data, $url) {
         $data = array_except($data, '_token');
 
-        $this->url = "url";
+        $this->url = $url;
         $this->fio = $data['fio'];
         $this->name_task = $data['name_task'];
         $this->description = $data['description'];

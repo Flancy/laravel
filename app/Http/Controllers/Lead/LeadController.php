@@ -46,7 +46,9 @@ class LeadController extends Controller
             return redirect()->back()->withErrors($valid->errors());
         }
 
-        $leadModel->createLead($request->all());
+        $url = $this->generateUrl();
+
+        $leadModel->createLead($request->all(), $url);
 
         return redirect('/');
     }

@@ -16,7 +16,7 @@ class CreateLeadsTable extends Migration
             $table->increments('id');
             $table->string('url')->unique();
             $table->string('fio');
-            $table->string('name-task');
+            $table->string('name_task');
             $table->string('description');
             $table->dateTime('date-actual');
             $table->string('summ');

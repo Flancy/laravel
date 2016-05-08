@@ -103,7 +103,7 @@ class AdminController extends Controller
 
      public function generateUrlPage(Request $request, GenerateUrl $urlModel)
      {
-         $url = $this->generateUrl();
+         $url = $this->generateUrl('/register/');
 
          $urlModel->addGenerateUrl($url);
          if($urlModel)
@@ -114,12 +114,5 @@ class AdminController extends Controller
          else {
              return view('/admin');
          }
-     }
-
-     static function generateUrl()
-     {
-         $publicUrl = url('/');
-         $randomString = str_random(40);
-         return $url = $publicUrl.'/register/'.$randomString;
      }
 }
