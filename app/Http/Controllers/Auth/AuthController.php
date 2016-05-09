@@ -11,6 +11,7 @@ use Validator;
 use App\User;
 use App\GenerateUrl;
 use App\Debit;
+use App\Lead;
 
 class AuthController extends Controller
 {
@@ -49,6 +50,16 @@ class AuthController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+
+     public function lead_index()
+     {
+         if (Auth::check()) {
+             return redirect('/');
+         }
+
+         return view('lead.register');
+     }
+
      public function showRegistrationForm(GenerateUrl $urlModel, $url)
      {
          if (property_exists($this, 'registerView')) {
@@ -81,6 +92,33 @@ class AuthController extends Controller
          $this->sendEmailReminder($request, Auth::user()->id);
 
          return redirect($this->redirectPath());
+     }
+
+     public function lead_register(Request $request, Lead $leadModel)
+     {
+         $valid = Validator::make($request->all(), [
+             'fio' => 'required|max:255|min:4',
+             'email' => 'required|email|max:255|min:6|unique:leads',
+             'name_task' => 'required|max:70|min:4',
+             'description' => 'required|max:255|min:4',
+             'summ' => 'required|max:70|min:3'
+         ]);
+
+         if ($valid->fails())
+         {
+             $errors = $valid->errors()->all();
+             return redirect()->back()->withErrors($valid->errors());
+         }
+
+         $url = $this->generateUrl();
+         $str = str_random(8);
+         $password = bcrypt($str);
+         $request = array_add($request, 'password', $password);
+         $request = array_add($request, 'policy', 'lead');
+
+         $leadModel->createLead($request->all(), $url);
+
+         return redirect('/');
      }
 
      protected function validator(array $data)

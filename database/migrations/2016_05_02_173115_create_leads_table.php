@@ -16,11 +16,14 @@ class CreateLeadsTable extends Migration
             $table->increments('id');
             $table->string('url')->unique();
             $table->string('fio');
+            $table->string('policy');
             $table->string('email')->unique();
+            $table->string('password');
             $table->string('name_task');
             $table->string('description');
             $table->dateTime('date-actual');
             $table->string('summ');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

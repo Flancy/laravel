@@ -13,11 +13,13 @@ class Lead extends Model
 
         $this->url = $url;
         $this->fio = $data['fio'];
+        $this->policy = $data['policy'];
+        $this->password = $data['password'];
         $this->email = $data['email'];
         $this->name_task = $data['name_task'];
         $this->description = $data['description'];
         $this->summ = $data['summ'];
 
-        $this->save();
+        return $this->save();
     }
 }
