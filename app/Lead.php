@@ -8,10 +8,9 @@ class Lead extends Model
 {
     protected $fillable = ['fio', 'name-task', 'description', 'summ'];
 
-    public function createLead($data, $url) {
+    public function createLead($data) {
         $data = array_except($data, '_token');
-
-        $this->url = $url;
+        $url = url('/');
         $this->fio = $data['fio'];
         $this->policy = $data['policy'];
         $this->password = $data['password'];
@@ -20,6 +19,12 @@ class Lead extends Model
         $this->description = $data['description'];
         $this->summ = $data['summ'];
 
-        return $this->save();
+        $this->save();
+
+        $id = $this->id;
+        $url = $url.'/lead/'.$id;
+
+        return $this->where('id', $id)
+            ->update(['url' => $url]);
     }
 }

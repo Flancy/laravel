@@ -60,6 +60,7 @@ input:-moz-placeholder {
 .register-lead h1,
 .login h1,
 .dashboard-company h1,
+.dashboard-lead h1,
 .settings-company h1 {
   margin-bottom: 30px;
   font-family: "Roboto";
@@ -207,6 +208,7 @@ input:-moz-placeholder {
 }
 .dashboard-company .control-panel .wrapper,
 .dashboard-company .body-panel .wrapper,
+.dashboard-lead .body-panel,
 .settings-company .control-panel .wrapper,
 .settings-company .body-panel .wrapper {
   padding: 15px 0px;
@@ -214,6 +216,7 @@ input:-moz-placeholder {
 }
 .dashboard-company .control-panel .wrapper ul,
 .dashboard-company .body-panel .wrapper ul,
+.dashboard-lead .body-panel ul,
 .settings-company .control-panel .wrapper ul,
 .settings-company .body-panel .wrapper ul {
   list-style: none;
@@ -222,6 +225,7 @@ input:-moz-placeholder {
 }
 .dashboard-company .control-panel .wrapper ul li a,
 .dashboard-company .body-panel .wrapper ul li a,
+.dashboard-lead .body-panel ul li a,
 .settings-company .control-panel .wrapper ul li a,
 .settings-company .body-panel .wrapper ul li a {
   padding: 5px 20px;
@@ -233,6 +237,7 @@ input:-moz-placeholder {
 }
 .dashboard-company .control-panel .wrapper ul li a.current,
 .dashboard-company .body-panel .wrapper ul li a.current,
+.dashboard-lead .body-panel ul li a.current,
 .settings-company .control-panel .wrapper ul li a.current,
 .settings-company .body-panel .wrapper ul li a.current {
   padding-left: 12px;
@@ -240,14 +245,17 @@ input:-moz-placeholder {
 }
 .dashboard-company .control-panel .wrapper ul li a:hover,
 .dashboard-company .body-panel .wrapper ul li a:hover,
+.dashboard-lead .body-panel ul li a:hover,
 .settings-company .control-panel .wrapper ul li a:hover,
 .settings-company .body-panel .wrapper ul li a:hover,
 .dashboard-company .control-panel .wrapper ul li a:focus,
 .dashboard-company .body-panel .wrapper ul li a:focus,
+.dashboard-lead .body-panel ul li a:focus,
 .settings-company .control-panel .wrapper ul li a:focus,
 .settings-company .body-panel .wrapper ul li a:focus,
 .dashboard-company .control-panel .wrapper ul li a:active,
 .dashboard-company .body-panel .wrapper ul li a:active,
+.dashboard-lead .body-panel ul li a:active,
 .settings-company .control-panel .wrapper ul li a:active,
 .settings-company .body-panel .wrapper ul li a:active {
   background-color: rgba(0,0,0,0.07);
@@ -328,6 +336,52 @@ input:-moz-placeholder {
 .dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-footer button:hover,
 .dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-footer button:active {
   box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
+}
+.dashboard-lead .body-panel {
+  padding: 0;
+}
+.dashboard-lead .body-panel .lead-head p {
+  padding: 20px 20px;
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 24px;
+  color: #323232;
+}
+.dashboard-lead .body-panel .lead-body {
+  padding: 0 5px;
+}
+.dashboard-lead .body-panel .lead-body p {
+  display: inline-block;
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 16px;
+  color: #555;
+}
+.dashboard-lead .body-panel .lead-body .cart-lead-attribute {
+  margin: 0;
+}
+.dashboard-lead .body-panel .lead-body .cart-lead-attribute i {
+  margin-right: 5px;
+  color: #555;
+}
+.dashboard-lead .body-panel .lead-body .cart-lead-attribute span {
+  font-size: 14px;
+  color: #333;
+}
+.dashboard-lead .body-panel .lead-footer {
+  padding: 15px 5px 20px 5px;
+}
+.dashboard-lead .body-panel .lead-footer .left-footer p {
+  color: #333;
+  line-height: normal;
+  font-family: "Roboto";
+  font-weight: normal;
+}
+.dashboard-lead .body-panel .lead-footer .left-footer p.p-name {
+  font-size: 18px;
+}
+.dashboard-lead .body-panel .lead-footer .left-footer p.p-value {
+  font-size: 16px;
 }
 .settings-company .body-panel .wrapper {
   padding: 0;

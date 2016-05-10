@@ -89,7 +89,7 @@ class AuthController extends Controller
          $debitModel->user_id = Auth::user()->id;
          $debitModel->save();
 
-         $this->sendEmailReminder($request, Auth::user()->id);
+         $this->sendEmailReminder($request, Auth::user()->id, 'company');
 
          return redirect($this->redirectPath());
      }
@@ -100,7 +100,7 @@ class AuthController extends Controller
              'fio' => 'required|max:255|min:4',
              'email' => 'required|email|max:255|min:6|unique:leads',
              'name_task' => 'required|max:70|min:4',
-             'description' => 'required|max:255|min:4',
+             'description' => 'required|min:4',
              'summ' => 'required|max:70|min:3'
          ]);
 
@@ -110,13 +110,15 @@ class AuthController extends Controller
              return redirect()->back()->withErrors($valid->errors());
          }
 
-         $url = $this->generateUrl();
          $str = str_random(8);
          $password = bcrypt($str);
          $request = array_add($request, 'password', $password);
          $request = array_add($request, 'policy', 'lead');
+         $request = array_add($request, 'pass', $str);
 
-         $leadModel->createLead($request->all(), $url);
+         $leadModel->createLead($request->all());
+
+         $this->sendEmailReminder($request, $leadModel->id, 'lead');
 
          return redirect('/');
      }
@@ -177,5 +179,10 @@ class AuthController extends Controller
             'name-license' => $data['name-license'],
             'date' => $data['date'],
         ]);
+    }
+
+    public function loginUsername()
+    {
+        return property_exists($this, 'username') ? $this->username : 'login';
     }
 }

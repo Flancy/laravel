@@ -280,6 +280,48 @@ input:-moz-placeholder
                             &:active
                                 box-shadow: 0px 4px 12px rgba(0,0,0,0.4)
 
+.dashboard-lead
+    h1
+        @extends .register h1
+    .body-panel
+        @extends .dashboard-company .control-panel .wrapper
+        padding: 0
+        .lead-head
+            p
+                padding: 20px 20px
+                font-family: $robotoFamily
+                font-weight: $fontNormal
+                font-size: 24px
+                color: #323232
+        .lead-body
+            padding: 0 5px
+            p
+                display: inline-block
+                font-family: $robotoFamily
+                font-weight: $fontNormal
+                font-size: 16px
+                color: #555555
+            .cart-lead-attribute
+                margin: 0
+                i
+                    margin-right: 5px
+                    color: #555555
+                span
+                    font-size: 14px
+                    color: #333333
+        .lead-footer
+            padding: 15px 5px 20px 5px
+            .left-footer
+                p
+                    color: #333333
+                    line-height: normal
+                    font-family: $robotoFamily
+                    font-weight: $fontNormal
+                    &.p-name
+                        font-size: 18px
+                    &.p-value
+                        font-size: 16px
+
 .settings-company
     h1
         @extends .register h1

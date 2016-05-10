@@ -20,7 +20,7 @@ class CreateLeadsTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('name_task');
-            $table->string('description');
+            $table->longText('description');
             $table->dateTime('date-actual');
             $table->string('summ');
             $table->rememberToken();

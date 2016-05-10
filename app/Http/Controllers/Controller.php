@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 use Request;
 use Mail;
 use App\User;
+use App\Lead;
 
 class Controller extends BaseController
 {
@@ -22,12 +23,24 @@ class Controller extends BaseController
         return $url = $publicUrl.$postfix.$randomString;
     }
 
-    public function sendEmailReminder($request, $id)
+    public function sendEmailReminder($request, $id, $type)
     {
-        $user = User::findOrFail($id);
+        if($type == 'company')
+        {
+            $user = User::findOrFail($id);
 
-        Mail::send('emails.reminder', ['user' => $user], function ($m) use ($user) {
-            $m->to($user->email, $user->fio)->subject('Your Reminder!');
-        });
+            Mail::send('emails.company', ['user' => $user], function ($m) use ($user) {
+                $m->to($user->email, $user->fio)->subject('Your Reminder!');
+            });
+        }
+        elseif($type == 'lead')
+        {
+            $user = Lead::findOrFail($id);
+            $user = array_add($user, 'pass', $request->pass);
+
+            Mail::send('emails.lead', ['user' => $user], function ($m) use ($user) {
+                $m->to($user->email, $user->fio)->subject('Your Reminder!');
+            });
+        }
     }
 }
