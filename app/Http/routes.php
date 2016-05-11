@@ -30,14 +30,6 @@ Route::group(['as' => 'lead'], function()
     Route::get('/lead/{id}', 'Lead\LeadController@showLeadCart');
 });
 
-Route::group(['as' => 'administrator'], function()
-{
-    Route::get('/admin', 'AdminController@admin');
-
-    Route::post('/generate-url', 'AdminController@generateUrlPage');
-
-});
-
 Route::group(['as' => 'settings'], function()
 {
     Route::get('/settings', 'User\SettingController@index');
