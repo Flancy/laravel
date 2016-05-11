@@ -14,6 +14,7 @@ class CreateGenerateUrlsTable extends Migration
     {
         Schema::create('generate_urls', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('email')->unique();
             $table->string('url');
             $table->timestamps();
         });
