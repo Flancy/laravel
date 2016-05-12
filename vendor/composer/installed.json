@@ -1894,62 +1894,6 @@
         ]
     },
     {
-        "name": "barryvdh/laravel-debugbar",
-        "version": "v2.2.0",
-        "version_normalized": "2.2.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/barryvdh/laravel-debugbar.git",
-            "reference": "13b7058d2120c8d5af7f1ada21b7c44dd87b666a"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/13b7058d2120c8d5af7f1ada21b7c44dd87b666a",
-            "reference": "13b7058d2120c8d5af7f1ada21b7c44dd87b666a",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/support": "5.1.*|5.2.*",
-            "maximebf/debugbar": "~1.11.0",
-            "php": ">=5.5.9",
-            "symfony/finder": "~2.7|~3.0"
-        },
-        "time": "2016-02-17 08:32:21",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.2-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Barryvdh\\Debugbar\\": "src/"
-            },
-            "files": [
-                "src/helpers.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Barry vd. Heuvel",
-                "email": "barryvdh@gmail.com"
-            }
-        ],
-        "description": "PHP Debugbar integration for Laravel",
-        "keywords": [
-            "debug",
-            "debugbar",
-            "laravel",
-            "profiler",
-            "webprofiler"
-        ]
-    },
-    {
         "name": "fzaninotto/faker",
         "version": "v1.6.0",
         "version_normalized": "1.6.0.0",
@@ -4087,18 +4031,74 @@
         ]
     },
     {
-        "name": "laravelrus/sleepingowl",
-        "version": "4.33.128-beta",
-        "version_normalized": "4.33.128.0-beta",
+        "name": "barryvdh/laravel-debugbar",
+        "version": "v2.2.2",
+        "version_normalized": "2.2.2.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/LaravelRUS/SleepingOwlAdmin.git",
-            "reference": "cd50433c99bc160e38656418e64efa7e9ff5c760"
+            "url": "https://github.com/barryvdh/laravel-debugbar.git",
+            "reference": "c291e58d0a13953e0f68d99182ee77ebc693edc0"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/LaravelRUS/SleepingOwlAdmin/zipball/cd50433c99bc160e38656418e64efa7e9ff5c760",
-            "reference": "cd50433c99bc160e38656418e64efa7e9ff5c760",
+            "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/c291e58d0a13953e0f68d99182ee77ebc693edc0",
+            "reference": "c291e58d0a13953e0f68d99182ee77ebc693edc0",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": "5.1.*|5.2.*",
+            "maximebf/debugbar": "~1.11.0",
+            "php": ">=5.5.9",
+            "symfony/finder": "~2.7|~3.0"
+        },
+        "time": "2016-05-11 13:54:43",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.2-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Barryvdh\\Debugbar\\": "src/"
+            },
+            "files": [
+                "src/helpers.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Barry vd. Heuvel",
+                "email": "barryvdh@gmail.com"
+            }
+        ],
+        "description": "PHP Debugbar integration for Laravel",
+        "keywords": [
+            "debug",
+            "debugbar",
+            "laravel",
+            "profiler",
+            "webprofiler"
+        ]
+    },
+    {
+        "name": "laravelrus/sleepingowl",
+        "version": "4.33.129-beta",
+        "version_normalized": "4.33.129.0-beta",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/LaravelRUS/SleepingOwlAdmin.git",
+            "reference": "b6ac430edd600c80a953707dea35f3001a1c463f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/LaravelRUS/SleepingOwlAdmin/zipball/b6ac430edd600c80a953707dea35f3001a1c463f",
+            "reference": "b6ac430edd600c80a953707dea35f3001a1c463f",
             "shasum": ""
         },
         "require": {
@@ -4115,7 +4115,7 @@
             "mockery/mockery": "^0.9.4",
             "phpunit/phpunit": "4.*"
         },
-        "time": "2016-05-06 12:42:26",
+        "time": "2016-05-11 08:27:34",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

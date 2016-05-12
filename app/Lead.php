@@ -6,25 +6,24 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lead extends Model
 {
-    protected $fillable = ['fio', 'name-task', 'description', 'summ'];
+    protected $fillable = [
+        'fio','name_task', 'description', 'price'
+    ];
 
-    public function createLead($data) {
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
+    public function createLead($data, $id) {
         $data = array_except($data, '_token');
-        $url = url('/');
+
+        $this->user_id = $id;
         $this->fio = $data['fio'];
-        $this->policy = $data['policy'];
-        $this->password = $data['password'];
-        $this->email = $data['email'];
         $this->name_task = $data['name_task'];
         $this->description = $data['description'];
-        $this->summ = $data['summ'];
+        $this->price = $data['price'];
 
-        $this->save();
-
-        $id = $this->id;
-        $url = $url.'/lead/'.$id;
-
-        return $this->where('id', $id)
-            ->update(['url' => $url]);
+        return $this->save();
     }
 }

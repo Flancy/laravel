@@ -7,11 +7,13 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
 use Auth;
+use Hash;
 use Validator;
 use App\User;
+use App\Company;
+use App\Lead;
 use App\GenerateUrl;
 use App\Debit;
-use App\Lead;
 
 class AuthController extends Controller
 {
@@ -34,15 +36,16 @@ class AuthController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
-
+    protected $users;
     /**
      * Create a new authentication controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(User $users)
     {
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->users = $users;
     }
     /**
      * Get a validator for an incoming registration request.
@@ -74,7 +77,7 @@ class AuthController extends Controller
 
      }
 
-     public function register(Request $request, Debit $debitModel)
+     public function register(Request $request, Debit $debitModel, Company $companyModel)
      {
          $validator = $this->validator($request->all());
 
@@ -83,13 +86,18 @@ class AuthController extends Controller
                  $request, $validator
              );
          }
+         $request = array_add($request, 'role', 'company');
 
          Auth::guard($this->getGuard())->login($this->create($request->all()));
 
-         $debitModel->user_id = Auth::user()->id;
+         $id = Auth::user()->id;
+
+         $debitModel->user_id = $id;
          $debitModel->save();
 
-         $this->sendEmailReminder($request, Auth::user()->id, 'company');
+         $companyModel->createCompany($request->all(), $id);
+
+         $this->sendEmailReminder($request, $id, 'company');
 
          return redirect($this->redirectPath());
      }
@@ -98,29 +106,32 @@ class AuthController extends Controller
      {
          $valid = Validator::make($request->all(), [
              'fio' => 'required|max:255|min:4',
-             'email' => 'required|email|max:255|min:6|unique:leads',
+             'email' => 'required|email|max:255|min:6|unique:users',
              'name_task' => 'required|max:70|min:4',
              'description' => 'required|min:4',
-             'summ' => 'required|max:70|min:3'
+             'price' => 'required|max:70|min:3'
          ]);
 
          if ($valid->fails())
          {
              $errors = $valid->errors()->all();
-             return redirect()->back()->withErrors($valid->errors());
+             return redirect()->back()->withErrors($valid->errors())->withInput();
          }
 
          $str = str_random(8);
-         $password = bcrypt($str);
-         $request = array_add($request, 'password', $password);
-         $request = array_add($request, 'policy', 'lead');
+         $request = array_add($request, 'password', $str);
+         $request = array_add($request, 'role', 'lead');
          $request = array_add($request, 'pass', $str);
 
-         $leadModel->createLead($request->all());
+         Auth::guard($this->getGuard())->login($this->createLeads($request->all()));
 
-         $this->sendEmailReminder($request, $leadModel->id, 'lead');
+         $id = Auth::user()->id;
 
-         return redirect('/');
+         $leadModel->createLead($request->all(), $id);
+
+         $this->sendEmailReminder($request, $id, 'lead');
+
+         return redirect('/lead/'.$id);
      }
 
      protected function validator(array $data)
@@ -129,7 +140,6 @@ class AuthController extends Controller
              'fio' => 'required|max:255|min:10',
              'phone' => 'required|max:24|min:4',
              'email' => 'required|email|max:255|min:6|unique:users',
-             'login' => 'required|max:64|min:4|unique:users',
              'password' => 'required|min:6',
              'name-company' => 'required|max:64',
              'ogrn' => 'required|max:128',
@@ -158,31 +168,23 @@ class AuthController extends Controller
     {
         GenerateUrl::deleteUrl($data['url']);
         return User::create([
-            'fio' => $data['fio'],
-            'policy' => 'company',
-            'phone' => $data['phone'],
+            'role' => $data['role'],
             'email' => $data['email'],
-            'login' => $data['login'],
             'password' => bcrypt($data['password']),
-            'name-company' => $data['name-company'],
-            'ogrn' => $data['ogrn'],
-            'inn' => $data['inn'],
-            'yur-adress' => $data['yur-adress'],
-            'fact-adress' => $data['fact-adress'],
-            'phone-company' => $data['phone-company'],
-            'fio-boss' => $data['fio-boss'],
-            'description-company' => $data['description-company'],
-            'name-bank' => $data['name-bank'],
-            'bik' => $data['bik'],
-            'k-c' => $data['k-c'],
-            'p-c' => $data['p-c'],
-            'name-license' => $data['name-license'],
-            'date' => $data['date'],
+        ]);
+    }
+
+    protected function createLeads(array $data)
+    {
+        return User::create([
+            'role' => $data['role'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
         ]);
     }
 
     public function loginUsername()
     {
-        return property_exists($this, 'username') ? $this->username : 'login';
+        return property_exists($this, 'username') ? $this->username : 'email';
     }
 }

@@ -27,22 +27,22 @@
                                 {!! csrf_field() !!}
                                 <div class="setting-body">
                                     <div class="form-group">
-                                        <label for="name-company">Название компании: </label>
-                                        <input type="text" name="name-company" value="{{ $data['name-company'] }}" readonly>
+                                        <label for="name_company">Название компании: </label>
+                                        <input type="text" name="name_company" value="{{ $data['name_company'] }}" readonly>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="name-company">Контактное лицо: </label>
-                                        <input type="text" name="fio-boss" value="{{ $data['fio-boss'] }}" readonly>
+                                        <label for="fio_boss">Контактное лицо: </label>
+                                        <input type="text" name="fio_boss" value="{{ $data['fio_boss'] }}" readonly>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="name-company">ОГРН: </label>
+                                        <label for="ogrn">ОГРН: </label>
                                         <input type="text" name="ogrn" value="{{ $data['ogrn'] }}" readonly>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="name-company">ИНН: </label>
+                                        <label for="inn">ИНН: </label>
                                         <input type="text" name="inn" value="{{ $data['inn'] }}" readonly>
                                     </div>
                                 </div>
@@ -50,11 +50,6 @@
                                     <div class="form-group">
                                         <label for="phone">Телефон: </label>
                                         <input type="text" name="phone" value="{{ $data['phone'] }}" readonly>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="email">Почта: </label>
-                                        <input type="text" name="email" value="{{ $data['email'] }}" readonly>
                                     </div>
 
                                     <div class="form-group">

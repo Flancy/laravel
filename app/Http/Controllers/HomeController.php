@@ -26,12 +26,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $idUser = Auth::user()->id;
+        $idUser = $request->user()->id;
         $leads = Lead::all();
-        $debitUser = User::find($idUser)->debit->debit;
+        $debitUser = $request->user()->find($idUser)->debit->debit;
+        
+        $companyInfo = $request->user()->company;
 
-        return view('dashboard_company', ['leads' => $leads, 'debit' => $debitUser]);
+        return view('dashboard_company', ['leads' => $leads, 'debit' => $debitUser, 'companyInfo' => $companyInfo]);
     }
 }

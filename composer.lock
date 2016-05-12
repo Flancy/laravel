@@ -9,16 +9,16 @@
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v2.2.0",
+            "version": "v2.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "13b7058d2120c8d5af7f1ada21b7c44dd87b666a"
+                "reference": "c291e58d0a13953e0f68d99182ee77ebc693edc0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/13b7058d2120c8d5af7f1ada21b7c44dd87b666a",
-                "reference": "13b7058d2120c8d5af7f1ada21b7c44dd87b666a",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/c291e58d0a13953e0f68d99182ee77ebc693edc0",
+                "reference": "c291e58d0a13953e0f68d99182ee77ebc693edc0",
                 "shasum": ""
             },
             "require": {
@@ -59,7 +59,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2016-02-17 08:32:21"
+            "time": "2016-05-11 13:54:43"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -1112,16 +1112,16 @@
         },
         {
             "name": "laravelrus/sleepingowl",
-            "version": "4.33.128-beta",
+            "version": "4.33.129-beta",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LaravelRUS/SleepingOwlAdmin.git",
-                "reference": "cd50433c99bc160e38656418e64efa7e9ff5c760"
+                "reference": "b6ac430edd600c80a953707dea35f3001a1c463f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaravelRUS/SleepingOwlAdmin/zipball/cd50433c99bc160e38656418e64efa7e9ff5c760",
-                "reference": "cd50433c99bc160e38656418e64efa7e9ff5c760",
+                "url": "https://api.github.com/repos/LaravelRUS/SleepingOwlAdmin/zipball/b6ac430edd600c80a953707dea35f3001a1c463f",
+                "reference": "b6ac430edd600c80a953707dea35f3001a1c463f",
                 "shasum": ""
             },
             "require": {
@@ -1167,7 +1167,7 @@
                 "crud",
                 "laravel"
             ],
-            "time": "2016-05-06 12:42:26"
+            "time": "2016-05-11 08:27:34"
         },
         {
             "name": "league/flysystem",

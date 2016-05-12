@@ -15,10 +15,8 @@ class CreatePayLeadsTable extends Migration
         Schema::create('pay_leads', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('lead_id')->unsigned();
-            $table->foreign('lead_id')->references('id')->on('leads');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('buy_lead')->unsigned();
+            $table->integer('company_id')->unsigned();
+            $table->boolean('buy_lead')->unsigned();
             $table->softDeletes();
             $table->timestamps();
         });

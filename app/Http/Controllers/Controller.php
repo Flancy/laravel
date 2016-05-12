@@ -35,7 +35,7 @@ class Controller extends BaseController
         }
         elseif($type == 'lead')
         {
-            $user = Lead::findOrFail($id);
+            $user = User::findOrFail($id);
             $user = array_add($user, 'pass', $request->pass);
 
             Mail::send('emails.lead', ['user' => $user], function ($m) use ($user) {

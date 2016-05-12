@@ -8,9 +8,9 @@ AdminSection::registerModel(User::class, function (ModelConfiguration $model) {
     // Display
     $model->onDisplay(function () {
         $display = AdminDisplay::table()->setColumns([
-            AdminColumn::link('fio')->setLabel('Username')->setWidth('200px'),
-            AdminColumn::email('email')->setLabel('Email')->setWidth('200px'),
-            AdminColumn::text('policy')->setLabel('Права')->setWidth('200px'),
+            AdminColumn::count('id')->setLabel('#'),
+            AdminColumn::email('email')->setLabel('Email'),
+            AdminColumn::text('role')->setLabel('Права'),
         ]);
         $display->paginate(15);
         return $display;

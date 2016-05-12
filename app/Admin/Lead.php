@@ -8,9 +8,9 @@ AdminSection::registerModel(Lead::class, function (ModelConfiguration $model) {
     // Display
     $model->onDisplay(function () {
         $display = AdminDisplay::table()->setColumns([
-            AdminColumn::text('name_task')->setLabel('Название')->setWidth('100px'),
-            AdminColumn::relatedLink('url')->setLabel('Url')->setWidth('200px'),
-            AdminColumn::text('fio')->setLabel('ФИО')->setWidth('200px')
+            AdminColumn::count('id')->setLabel('#'),
+            AdminColumn::text('name_task')->setLabel('Название'),
+            AdminColumn::text('fio')->setLabel('ФИО')
         ]);
         $display->paginate(15);
         return $display;

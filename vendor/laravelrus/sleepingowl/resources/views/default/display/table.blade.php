@@ -23,13 +23,13 @@
 			</div>
 	</div>
 
+	<div class="table-responsive">
 	@yield('panel.heading')
-
-	@foreach($extensions as $ext)
-		{!! $ext->render() !!}
-	@endforeach
-
+		@foreach($extensions as $ext)
+			{!! $ext->render() !!}
+		@endforeach
 	@yield('panel.footer')
+	</dvi>
 </div>
 
 @yield('after.panel')

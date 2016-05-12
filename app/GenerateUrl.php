@@ -9,21 +9,6 @@ class GenerateUrl extends Model
 {
     protected $fillable = ['id', 'url'];
 
-    public function deleteOldUrl()
-    {
-        $records = $this->where('created_at',  '<', Carbon::today()->toDateString())->get();
-        $count = $records->count();
-        foreach ($records as $record) {
-         $record->delete();
-        }
-    }
-
-    public function addGenerateUrl($url)
-    {
-        $this->url = $url;
-        return $this->firstOrNew(['url' => $url])->save();
-    }
-
     public function checkUrl($url)
     {
         return $this->where('url', $url)->firstOrFail();

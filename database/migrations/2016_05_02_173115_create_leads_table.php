@@ -14,16 +14,13 @@ class CreateLeadsTable extends Migration
     {
         Schema::create('leads', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('url')->unique();
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('fio');
-            $table->string('policy');
-            $table->string('email')->unique();
-            $table->string('password');
             $table->string('name_task');
             $table->longText('description');
-            $table->dateTime('date-actual');
-            $table->string('summ');
-            $table->rememberToken();
+            $table->dateTime('date_actual');
+            $table->string('price');
             $table->timestamps();
         });
     }

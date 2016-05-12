@@ -8,6 +8,7 @@ use Validator;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Company;
 use Auth;
 
 class SettingController extends Controller
@@ -24,12 +25,17 @@ class SettingController extends Controller
 
     public function index(Request $request)
     {
-        $data = $request->user();
+        $data = $request->user()->company;
+        $email = $request->user()->email;
+
+        $data = array_add($data, 'email', $email);
 
         $idUser = Auth::user()->id;
         $debitUser = User::find($idUser)->debit->debit;
 
-        return view('user.setting', ['data' => $data, 'debit' => $debitUser]);
+        $companyInfo = $data;
+
+        return view('user.setting', ['data' => $data, 'debit' => $debitUser, 'companyInfo' => $companyInfo]);
     }
 
     /**
@@ -70,25 +76,24 @@ class SettingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, User $user)
+    public function edit(Request $request, Company $companyModel)
     {
         $data = $request->all();
-        $idUser = $request->user()->id;
+        $idUser = $request->user()->company->id;
 
         if ( ! $request->ajax() )
         {
             return redirect()->to('/');
         }
 
-        if (!empty($data['email']))
+        if (!empty($data['name_company']))
         {
             $validPersonal = Validator::make($request->all(), [
-                'name-company' => 'required|max:255|min:2',
-                'fio-boss' => 'required|max:255|min:4',
+                'name_company' => 'required|max:255|min:2',
+                'fio_boss' => 'required|max:255|min:4',
                 'ogrn' => 'required|max:70|min:4',
                 'inn' => 'required|max:70|min:4',
                 'phone' => 'required|max:70|min:8',
-                'email' => 'required|email|max:255|min:6'
             ]);
 
             if ($validPersonal->fails())
@@ -96,7 +101,7 @@ class SettingController extends Controller
                 return $validPersonal->errors()->all();
             }
 
-            return $user->updateCompanyInfo($idUser, $data);
+            return $companyModel->updateCompanyInfo($idUser, $data);
         }
 
         elseif (!empty($data['password']))
@@ -111,7 +116,7 @@ class SettingController extends Controller
                 return $validPassword->errors()->all();
             }
             $data['password'] = bcrypt($data['password']);
-            return $user->updateCompanyInfo($idUser, $data);
+            return $companyModel->updateCompanyInfo($idUser, $data);
         }
     }
 

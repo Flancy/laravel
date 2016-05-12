@@ -68,8 +68,7 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
-        ],
-
+        ]
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -101,7 +100,7 @@ return [
             'email' => 'auth.emails.password',
             'table' => 'password_resets',
             'expire' => 60,
-        ],
+        ]
     ],
 
 ];

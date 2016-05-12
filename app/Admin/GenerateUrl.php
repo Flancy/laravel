@@ -8,9 +8,9 @@ AdminSection::registerModel(GenerateUrl::class, function (ModelConfiguration $mo
     // Display
     $model->onDisplay(function () {
         $display = AdminDisplay::table()->setColumns([
-            AdminColumn::text('id')->setLabel('#')->setWidth('20px'),
-            AdminColumn::email('email')->setLabel('Email')->setWidth('200px'),
-            AdminColumn::text('url')->setLabel('Ссылка')->setWidth('200px'),
+            AdminColumn::text('id')->setLabel('#'),
+            AdminColumn::email('email')->setLabel('Email'),
+            AdminColumn::text('url')->setLabel('Ссылка'),
         ]);
         $display->paginate(15);
         return $display;

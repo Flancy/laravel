@@ -37,7 +37,7 @@
                             <span>Бюджет:</span>
                         </p>
                         <p>
-                            {{ $lead->summ }} р.
+                            {{ $lead->price }} р.
                         </p>
                     </div>
                 </div>

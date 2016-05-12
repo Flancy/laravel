@@ -9,8 +9,11 @@
                 {!! csrf_field() !!}
 
                 <div class="form-head">
-                    <p>
-                        Авторизация
+                    <p class="tab-login active" id="company">
+                        Подрядчик
+                    </p>
+                    <p class="tab-login" id="lead">
+                        Заказчик
                     </p>
                 </div>
                 <div class="form-body">
@@ -18,11 +21,11 @@
                         <div class="row">
                             <label class="col-sm-4" for="login">Ваш логин:</label>
                             <div class="col-sm-8">
-                                <input type="text" class="{{ $errors->has('login') ? ' has-error' : '' }}" name="login" value="{{ old('login') }}" placeholder="Логин">
+                                <input type="text" class="{{ $errors->has('email') ? ' has-error' : '' }}" name="email" value="{{ old('email') }}" placeholder="Email">
                             </div>
-                            @if ($errors->has('login'))
+                            @if ($errors->has('email'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('login') }}</strong>
+                                    <strong>{{ $errors->first('email') }}</strong>
                                 </span>
                             @endif
                         </div>

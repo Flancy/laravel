@@ -33,25 +33,7 @@ class LeadController extends Controller
      */
     public function create(Request $request, Lead $leadModel)
     {
-        $valid = Validator::make($request->all(), [
-            'fio' => 'required|max:255|min:4',
-            'email' => 'required|email|max:255|min:6|unique:leads',
-            'name_task' => 'required|max:70|min:4',
-            'description' => 'required|max:255|min:4',
-            'summ' => 'required|max:70|min:3'
-        ]);
-
-        if ($valid->fails())
-        {
-            $errors = $valid->errors()->all();
-            return redirect()->back()->withErrors($valid->errors());
-        }
-
-        $url = $this->generateUrl();
-
-        $leadModel->createLead($request->all(), $url);
-
-        return redirect('/');
+        
     }
 
     /**
@@ -71,12 +53,13 @@ class LeadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-     public function showLeadCart(Lead $leadModel, $id)
+     public function showLeadCart(Request $request, Lead $leadModel, $id)
      {
          $url = url('/lead/').'/'.$id;
          $lead = Lead::find($id);
+         $user = $request->user()->find($id)->lead;
 
-         return view('lead.dashboard', ['lead' => $lead]);
+         return view('lead.dashboard', ['lead' => $lead, 'leadInfo' => $user]);
      }
 
     /**

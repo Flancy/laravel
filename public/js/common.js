@@ -1,4 +1,28 @@
-$(document).ready(function(){
+ $(document).ready(function(){
+    //Login form
+    var tab_login = $('.tab-login');
+    var tab_id;
+
+    $(tab_login).click(function (){
+        tab_id = $(this).attr('id');
+
+        if($(this).hasClass('active')) {
+
+        }
+        else {
+            $(tab_login).removeClass('active');
+            $(this).addClass('active');
+            /*if(tab_id == 'lead') {
+                var url_login = 'http://'+window.location.hostname+'/lead-login';
+                $(this).parent().parent().attr('action', url_login);
+            }
+            else {
+                var url_login = 'http://'+window.location.hostname+'/login';
+                $(this).parent().parent().attr('action', url_login);
+            }*/
+        }
+    });
+
     //Settings
     var data_save = true;
     var submit_personal = $('#submit-personal');
@@ -6,7 +30,7 @@ $(document).ready(function(){
     var personal_form = $('#personal-form');
     var password_form = $('#password-form');
 
-    $(submit_personal).click(function(){
+    $(submit_personal).click(function (){
         urlForm = $(personal_form).attr('action');
         if (data_save === true) {
             data_save = false;
@@ -34,7 +58,7 @@ $(document).ready(function(){
         }
     });
 
-    $(submit_password).click(function(){
+    $(submit_password).click(function (){
         urlForm = $(password_form).attr('action');
         $.ajax({
             type: "POST",

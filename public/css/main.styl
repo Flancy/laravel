@@ -132,15 +132,23 @@ input:-moz-placeholder
         box-shadow: 0px 0px 12px rgba(0,0,0,0.6)
         .form-head
             margin-bottom: 20px
-            padding: 15px 0px
-            font-family: $robotoFamily
-            font-weight: $fontNormal
-            font-size: 22px
-            color: #666666
-            text-align: center
             border-bottom: 1px solid #cccccc
-            p
+            font-size: 0
+            .tab-login
+                display: inline-block
+                width: 50%
                 margin: 0
+                padding: 15px 0px
+                font-family: $robotoFamily
+                font-weight: $fontNormal
+                text-align: center
+                font-size: 20px
+                color: #666666
+                cursor: pointer
+                &:first-of-type
+                    border-right: 1px solid #cccccc;
+                &.active
+                    box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.25)
         .form-body
             .row
                 margin-bottom: 25px

@@ -33,10 +33,10 @@
                             <strong>{{ $errors->first('description') }}</strong>
                         </span>
                     @endif
-                    <input type="text" class="{{ $errors->has('summ') ? ' has-error' : '' }}" name="summ" value="{{ old('summ') }}" placeholder="Сумма">
-                    @if ($errors->has('summ'))
+                    <input type="text" class="{{ $errors->has('price') ? ' has-error' : '' }}" name="price" value="{{ old('price') }}" placeholder="Сумма">
+                    @if ($errors->has('price'))
                         <span class="help-block">
-                            <strong>{{ $errors->first('summ') }}</strong>
+                            <strong>{{ $errors->first('price') }}</strong>
                         </span>
                     @endif
                 </div>

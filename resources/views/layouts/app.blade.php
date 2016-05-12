@@ -54,11 +54,15 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 <i class="fa fa-user" aria-hidden="true"></i>
-                                <span>{{ Auth::user()->fio }}</span>
+                                <span>
+                                    {{ $leadInfo->fio or $companyInfo->fio }}
+                                </span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#"><i class="fa fa-money" aria-hidden="true"></i> Баланс: {{ $debit }}</a></li>
+                                @if (isset($debit))
+                                    <li><a href="#"><i class="fa fa-money" aria-hidden="true"></i> Баланс: {{ $debit }}</a></li>
+                                @endif
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Выйти</a></li>
                             </ul>
                         </li>
