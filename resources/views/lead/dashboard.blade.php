@@ -9,7 +9,7 @@
             <div class="col-md-12 body-panel">
                 <div class="lead-head">
                     <p>
-                        {{ $lead->name_task }}
+                        {{ $leadInfo->name_task }}
                     </p>
                 </div>
                 <div class="lead-body clearfix">
@@ -28,7 +28,7 @@
                             <span>Время: </span>
                         </p>
                         <p>
-                            {{ $lead->created_at }}
+                            {{ $leadInfo->created_at }}
                         </p>
                     </div>
                     <div class="col-md-4">
@@ -37,7 +37,7 @@
                             <span>Бюджет:</span>
                         </p>
                         <p>
-                            {{ $lead->price }} р.
+                            {{ $leadInfo->price }} р.
                         </p>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                                 Описание:
                             </p>
                             <p class="col-xs-9 p-value">
-                                {{ $lead->description }}
+                                {{ $leadInfo->description }}
                             </p>
                         </div>
                     </div>

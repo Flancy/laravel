@@ -10,4 +10,13 @@ class Debit extends Model
     {
         return $this->belongsTo('App\User', 'user_id', 'id');
     }
+
+    public function takeDebit($summ, $id)
+    {
+        $debit = $this->where('user_id', $id)->firstOrFail();
+        $debit = $debit->debit;
+        $summ = $debit - $summ;
+
+        return $this->where('user_id', $id)->update(['debit' => $summ]);
+    }
 }

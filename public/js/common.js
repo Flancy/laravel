@@ -23,6 +23,22 @@
         }
     });
 
+    //Company dashboard
+    var pay_lead_btn = $('.pay_lead_submit');
+
+    $(pay_lead_btn).click(function (){
+        var parentForm = $(this).parent();
+        var urlForm = $(parentForm).attr('action');
+        $.ajax({
+            type: "POST",
+            url: urlForm,
+            data: $(parentForm).serialize(),
+            success: function( data ) {
+                console.log(data);
+            }
+        });
+    });
+
     //Settings
     var data_save = true;
     var submit_personal = $('#submit-personal');

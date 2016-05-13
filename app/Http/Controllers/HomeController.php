@@ -31,9 +31,10 @@ class HomeController extends Controller
         $idUser = $request->user()->id;
         $leads = Lead::all();
         $debitUser = $request->user()->find($idUser)->debit->debit;
-        
+        $payLead = $request->user();
+
         $companyInfo = $request->user()->company;
 
-        return view('dashboard_company', ['leads' => $leads, 'debit' => $debitUser, 'companyInfo' => $companyInfo]);
+        return view('dashboard_company', ['leads' => $leads, 'debit' => $debitUser, 'companyInfo' => $companyInfo, 'payLead' => $payLead]);
     }
 }

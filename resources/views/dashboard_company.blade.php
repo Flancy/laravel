@@ -63,14 +63,18 @@
                             </div>
                             <div class="cart-lead-footer clearfix">
                                 <div class="col-sm-6">
-                                    <form id="buy-lead" class="buy-lead" action="/buy-lead" method="post">
+                                    <form id="pay-lead" class="pay-lead" action="/pay-lead" method="post">
                                         {!! csrf_field() !!}
-
-                                        <button id="buy-lead-submit" type="button" name="button">Купить заявку</button>
+                                        <input type="hidden" name="id_lead" value="{{ $lead->id }}">
+                                        <button class="pay_lead_submit" type="button" name="button">Купить заявку</button>
                                     </form>
                                 </div>
                                 <div class="col-sm-6">
-
+                                    @if ($payLead->payLead()->where('lead_id', '=', $lead->id)->where('buy_lead', '=', 1)->first())
+                                        Success
+                                    @else
+                                        Error
+                                    @endif
                                 </div>
                             </div>
                         </div>

@@ -1,29 +1,29 @@
 <?php
 
-namespace App\Http\Controllers\Lead;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use Validator;
 use Auth;
-use App\Lead;
+use App\PayLead;
+use App\Debit;
 
-class LeadController extends Controller
+class PayLeadConroller extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+     public function __construct()
+     {
+         $this->middleware('auth');
+     }
+
     public function index()
     {
-        if (Auth::check()) {
-            return redirect('/');
-        }
-
-        return view('lead.register');
+        //
     }
 
     /**
@@ -31,9 +31,9 @@ class LeadController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request, Lead $leadModel)
+    public function create()
     {
-
+        //
     }
 
     /**
@@ -42,9 +42,21 @@ class LeadController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, PayLead $payLeadModel, Debit $debitModel)
     {
-        //
+        $data = $request->all();
+        $idUser = $request->user()->id;
+        $summ = 100;
+        if ( ! $request->ajax() )
+        {
+            return redirect()->to('/');
+        }
+
+        if (!empty($data['id_lead']))
+        {
+            $payLeadModel->addLeadForCompany($idUser, $data);
+            return $debitModel->takeDebit($summ, $idUser);
+        }
     }
 
     /**
@@ -53,13 +65,10 @@ class LeadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-     public function showLeadCart(Request $request, Lead $leadModel, $id)
-     {
-         $url = url('/lead/').'/'.$id;
-         $user = $request->user()->find($id)->lead;
-
-         return view('lead.dashboard', ['leadInfo' => $user]);
-     }
+    public function show($id)
+    {
+        //
+    }
 
     /**
      * Show the form for editing the specified resource.

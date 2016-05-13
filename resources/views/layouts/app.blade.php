@@ -61,7 +61,7 @@
 
                             <ul class="dropdown-menu" role="menu">
                                 @if (isset($debit))
-                                    <li><a href="#"><i class="fa fa-money" aria-hidden="true"></i> Баланс: {{ $debit }}</a></li>
+                                    <li><a href="#"><i class="fa fa-money" aria-hidden="true"></i> Баланс: {{ $debit }} р.</a></li>
                                 @endif
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Выйти</a></li>
                             </ul>

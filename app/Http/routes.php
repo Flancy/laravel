@@ -35,4 +35,6 @@ Route::group(['middleware' => 'company', 'as' => 'settings'], function()
     Route::get('/settings', 'User\SettingController@index');
 
     Route::post('/settings', 'User\SettingController@edit');
+
+    Route::post('/pay-lead', 'PayLeadConroller@store');
 });
