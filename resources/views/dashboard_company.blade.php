@@ -62,20 +62,22 @@
                                 </div>
                             </div>
                             <div class="cart-lead-footer clearfix">
-                                <div class="col-sm-6">
-                                    <form id="pay-lead" class="pay-lead" action="/pay-lead" method="post">
-                                        {!! csrf_field() !!}
-                                        <input type="hidden" name="id_lead" value="{{ $lead->id }}">
-                                        <button class="pay_lead_submit" type="button" name="button">Купить заявку</button>
-                                    </form>
-                                </div>
-                                <div class="col-sm-6">
-                                    @if ($payLead->payLead()->where('lead_id', '=', $lead->id)->where('buy_lead', '=', 1)->first())
-                                        Success
-                                    @else
-                                        Error
-                                    @endif
-                                </div>
+                                @if ($user->company->payLead()->where('lead_id',$lead->id)->where('buy_lead', 1)->first())
+                                    <div class="col-sm-6 pay_lead">
+                                        <a class="cart-link-btn" href="lead/{{ $lead->id }}">Карточка заявки</a>
+                                    </div>
+                                    <div class="col-sm-6 pay_lead">
+                                        <a class="cart-info-btn" href="#">Краткая информация</a>
+                                    </div>
+                                @else
+                                    <div class="col-sm-6 not_pay_lead">
+                                        <form id="pay-lead" class="pay-lead" action="/pay-lead" method="post">
+                                            {!! csrf_field() !!}
+                                            <input type="hidden" name="id_lead" value="{{ $lead->id }}">
+                                            <button class="pay_lead_submit" type="button" name="button">Купить заявку</button>
+                                        </form>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>

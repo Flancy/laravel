@@ -30,11 +30,11 @@ class AuthServiceProvider extends ServiceProvider
             return $user->role=='admin';
         });
         $gate->define('lead', function ($user){
-            return $user->role=='lead' || $user->role=='admin';
+            return $user->role=='lead';
         });
 
         $gate->define('company',function ($user){
-            return $user->role=='company' || $user->role=='admin';
+            return $user->role=='company';
         });
         //
     }

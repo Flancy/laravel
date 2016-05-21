@@ -55,7 +55,15 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 <span>
-                                    {{ $leadInfo->fio or $companyInfo->fio }}
+                                    @can('admin')
+                                        {{ Auth::user()->company->fio }}
+                                    @endcan
+                                    @can('lead')
+                                        {{ Auth::user()->lead->fio }}
+                                    @endcan
+                                    @can('company')
+                                        {{ Auth::user()->company->fio }}
+                                    @endcan
                                 </span>
                             </a>
 

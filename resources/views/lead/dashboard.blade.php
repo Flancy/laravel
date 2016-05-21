@@ -3,7 +3,15 @@
 @section('content')
 <section class="dashboard-lead">
     <div class="container">
-        <h1>Ваша заявка</h1>
+        @can('admin')
+            <h1>{{ $leadInfo->name_task }}</h1>
+        @endcan
+        @can('company')
+            <h1>{{ $leadInfo->name_task }}</h1>
+        @endcan
+        @can('lead')
+            <h1>Ваша заявка</h1>
+        @endcan
 
         <div class="row">
             <div class="col-md-12 body-panel">

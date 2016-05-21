@@ -329,7 +329,31 @@ input:-moz-placeholder {
 .dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-footer {
   border-bottom: 1px solid #ccc;
 }
-.dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-footer button {
+.dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-footer .pay_lead a {
+  margin-bottom: 14px;
+  display: inline-block;
+  padding: 8px 20px;
+  outline: none;
+  border: none;
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 15px;
+  color: #fff;
+  box-shadow: 0px 0px 6px rgba(0,0,0,0.4);
+}
+.dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-footer .pay_lead a:focus,
+.dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-footer .pay_lead a:hover,
+.dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-footer .pay_lead a:active {
+  text-decoration: none;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
+}
+.dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-footer .pay_lead .cart-link-btn {
+  background-color: #64dd17;
+}
+.dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-footer .pay_lead .cart-info-btn {
+  background-color: #3bafda;
+}
+.dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-footer .not_pay_lead button {
   margin-bottom: 14px;
   display: inline-block;
   padding: 8px 20px;
@@ -342,9 +366,9 @@ input:-moz-placeholder {
   color: #fff;
   box-shadow: 0px 0px 6px rgba(0,0,0,0.4);
 }
-.dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-footer button:focus,
-.dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-footer button:hover,
-.dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-footer button:active {
+.dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-footer .not_pay_lead button:focus,
+.dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-footer .not_pay_lead button:hover,
+.dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-footer .not_pay_lead button:active {
   box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
 }
 .dashboard-lead .body-panel {

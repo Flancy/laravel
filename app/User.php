@@ -38,9 +38,4 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Debit');
     }
-
-    public function payLead()
-    {
-        return $this->hasMany('App\PayLead', 'company_id');
-    }
 }

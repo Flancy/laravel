@@ -32,12 +32,6 @@
                             <strong>{{ $errors->first('email') }}</strong>
                         </span>
                     @endif
-                    <input type="login" class="{{ $errors->has('login') ? ' has-error' : '' }}" name="login" value="{{ old('login') }}" placeholder="Логин личного кабинет">
-                    @if ($errors->has('login'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('login') }}</strong>
-                        </span>
-                    @endif
                     <input type="password" class="{{ $errors->has('password') ? ' has-error' : '' }}" name="password" value="{{ old('password') }}" placeholder="Пароль личного кабинета">
                     @if ($errors->has('password'))
                         <span class="help-block">

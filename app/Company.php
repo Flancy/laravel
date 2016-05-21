@@ -19,6 +19,11 @@ class Company extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function payLead()
+    {
+        return $this->hasMany('App\PayLead', 'company_id', 'id');
+    }
+
     public function createCompany(array $data, $id)
     {
         $this->user_id = $id;

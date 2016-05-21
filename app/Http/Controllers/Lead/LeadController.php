@@ -56,7 +56,7 @@ class LeadController extends Controller
      public function showLeadCart(Request $request, Lead $leadModel, $id)
      {
          $url = url('/lead/').'/'.$id;
-         $user = $request->user()->find($id)->lead;
+         $user = Lead::find($id);
 
          return view('lead.dashboard', ['leadInfo' => $user]);
      }

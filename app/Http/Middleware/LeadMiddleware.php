@@ -4,6 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Model;
+use App\PayLead;
 
 class LeadMiddleware
 {
@@ -21,7 +23,16 @@ class LeadMiddleware
                 return $next($request);
             }
             elseif($request->user()->role == 'company') {
-                return redirect('/home');
+                $id = $request->user()->company->id;
+                $lead_id = $request->id;
+                settype($lead_id, "integer");
+                $object = PayLead::where('lead_id', '=', $lead_id)->where('company_id', '=', $id)->where('buy_lead', 1)->count();
+                if($object === 1) {
+                    return $next($request);
+                }
+                else {
+                    return redirect('/home');
+                }
             }
             elseif($request->user()->role == 'admin') {
                 return $next($request);

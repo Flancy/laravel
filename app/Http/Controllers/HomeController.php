@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Lead;
 use App\User;
+use App\PayLead;
 
 class HomeController extends Controller
 {
@@ -29,12 +30,13 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $idUser = $request->user()->id;
+        $idCompany = $request->user()->company->id;
         $leads = Lead::all();
         $debitUser = $request->user()->find($idUser)->debit->debit;
-        $payLead = $request->user();
+        $user = $request->user();
 
         $companyInfo = $request->user()->company;
 
-        return view('dashboard_company', ['leads' => $leads, 'debit' => $debitUser, 'companyInfo' => $companyInfo, 'payLead' => $payLead]);
+        return view('dashboard_company', ['leads' => $leads, 'debit' => $debitUser, 'companyInfo' => $companyInfo, 'user' => $user, 'idCompany' => $idCompany]);
     }
 }

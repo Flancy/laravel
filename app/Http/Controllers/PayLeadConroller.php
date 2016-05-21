@@ -45,7 +45,7 @@ class PayLeadConroller extends Controller
     public function store(Request $request, PayLead $payLeadModel, Debit $debitModel)
     {
         $data = $request->all();
-        $idUser = $request->user()->id;
+        $idUser = $request->user()->company->id;
         $summ = 100;
         if ( ! $request->ajax() )
         {
