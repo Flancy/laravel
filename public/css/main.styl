@@ -15,6 +15,58 @@ input::-webkit-input-placeholder
 
 input:-moz-placeholder
     color: #999999
+//Modals
+.fancybox-close
+    width: 16px
+    height: 16px
+    background-image: none
+    color: #ffffff
+    font-size: 20px
+    top: -20px
+    right: -18px
+    &:hover,
+    &:active,
+    &:focus
+        outline: none
+        color: #cccccc
+
+.fancybox-skin
+    border-radius: 0
+
+.fancybox-inner
+    height: auto !important
+
+.modals
+    &.modals-lead-info
+        width: 450px
+        h2
+            margin: 10px 0 20px
+            font-family: $robotoFamily
+            font-weight: $fontThin
+            color: #666666
+            font-size: 24px
+        .modals-body
+            color: #555555
+            font-family: $robotoFamily
+            .modals-p
+                font-weight: $fontNormal
+                font-size: 18px
+            .modals-labels
+                font-weight: $fontMedium
+                font-size: 18px
+
+.modals-error
+    display: inline-block
+    margin: 0
+    height: 100%;
+    border-radius: 4px
+    width: 360px
+    h2
+        display: inline-block
+        margin: 20px
+        font-family: $robotoFamily
+        font-weight: $fontMedium
+        font-size: 16px
 
 .navbar-default
     background-color: #212121

@@ -67,7 +67,7 @@
                                         <a class="cart-link-btn" href="lead/{{ $lead->id }}">Карточка заявки</a>
                                     </div>
                                     <div class="col-sm-6 pay_lead">
-                                        <a class="cart-info-btn" href="#">Краткая информация</a>
+                                        <a class="cart-info-btn fancybox" href="#modal">Краткая информация</a>
                                     </div>
                                 @else
                                     <div class="col-sm-6 not_pay_lead">

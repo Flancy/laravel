@@ -1,4 +1,9 @@
- $(document).ready(function(){
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+$(document).ready(function(){
     //Login form
     var tab_login = $('.tab-login');
     var tab_id;
@@ -12,14 +17,6 @@
         else {
             $(tab_login).removeClass('active');
             $(this).addClass('active');
-            /*if(tab_id == 'lead') {
-                var url_login = 'http://'+window.location.hostname+'/lead-login';
-                $(this).parent().parent().attr('action', url_login);
-            }
-            else {
-                var url_login = 'http://'+window.location.hostname+'/login';
-                $(this).parent().parent().attr('action', url_login);
-            }*/
         }
     });
 
@@ -38,6 +35,17 @@
             }
         });
     });
+    $('a[href="#modal"]').on('click', function(){
+        var lead_id = $(this).parent().parent().find('.cart-link-btn').attr('href');
+        $(".fancybox").fancybox({
+            tpl : {
+                wrap : '<div class="fancybox-wrap" tabIndex="-1"><div class="fancybox-skin"><i class="fa fa-times fancybox-item fancybox-close" aria-hidden="true"></i><div class="fancybox-outer"><div class="fancybox-inner"></div></div></div></div>'
+            },
+            href: lead_id+'/info',
+            type: 'ajax'
+        });
+    });
+
 
     //Settings
     var data_save = true;

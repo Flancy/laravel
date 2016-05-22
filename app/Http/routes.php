@@ -28,6 +28,8 @@ Route::post('/lead-register', ['uses' =>  'Auth\AuthController@lead_register']);
 Route::group(['middleware' => 'lead', 'as' => 'lead'], function()
 {
     Route::get('/lead/{id}', 'Lead\LeadController@showLeadCart');
+
+    Route::get('/lead/{id}/info', 'Lead\LeadController@showLeadInfo');
 });
 
 Route::group(['middleware' => 'company', 'as' => 'settings'], function()

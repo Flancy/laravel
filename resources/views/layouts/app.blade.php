@@ -10,6 +10,7 @@
     <!-- Styles -->
     <link href="{{ url('libs/fontawesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ url('libs/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url('libs/fancybox/jquery.fancybox.css') }}" rel="stylesheet">
     <link href="{{ url('css/main.css') }}" rel="stylesheet">
 
 </head>
@@ -79,12 +80,11 @@
             </div>
         </div>
     </nav>
-
     @yield('content')
-
     <!-- JavaScripts -->
     <script src="{{ url('libs/jquery/jquery-1.12.3.min.js') }}"></script>
     <script src="{{ url('libs/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url('libs/fancybox/jquery.fancybox.pack.js') }}"></script>
     <script src="{{ url('js/common.js') }}"></script>
 </body>
 </html>

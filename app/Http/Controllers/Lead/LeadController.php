@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Validator;
 use Auth;
 use App\Lead;
+use App\PayLead;
 
 class LeadController extends Controller
 {
@@ -59,6 +60,25 @@ class LeadController extends Controller
          $user = Lead::find($id);
 
          return view('lead.dashboard', ['leadInfo' => $user]);
+     }
+
+     public function showLeadInfo(Request $request, $id)
+     {
+         if ( ! $request->ajax() )
+         {
+             return redirect('/');
+         }
+
+         $payLead = PayLead::where('lead_id', '=', $id)->where('company_id', '=', $request->user()->company->id)->where('buy_lead', 1)->count();
+         if($payLead === 1) {
+             $leadInfo = Lead::find($id);
+             return view('ajax.lead-info', ['leadInfo' => $leadInfo]);
+         }
+
+         else {
+             $error = 'Произошла ошибка. Перезагрузите страницу и попробуйте еще раз';
+             return view('ajax.lead-info', ['error' => $error]);
+         }
      }
 
     /**
