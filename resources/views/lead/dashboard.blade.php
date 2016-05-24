@@ -3,17 +3,14 @@
 @section('content')
 <section class="dashboard-lead">
     <div class="container">
-        @can('admin')
+        @if (Auth::user()->role == 'admin' || Auth::user()->role == 'company')
             <h1>{{ $leadInfo->name_task }}</h1>
-        @endcan
-        @can('company')
-            <h1>{{ $leadInfo->name_task }}</h1>
-        @endcan
+        @endif
         @can('lead')
             <h1>Ваша заявка</h1>
         @endcan
 
-        <div class="row">
+        <div class="row lead-row">
             <div class="col-md-12 body-panel">
                 <div class="lead-head">
                     <p>
@@ -66,6 +63,116 @@
                 </div>
             </div>
         </div>
+        @can('lead')
+            <div class="row lead-row">
+                <div class="col-md-12 body-panel">
+                    <div class="lead-bid-head">
+                        <p>
+                            Предложения подрядчиков
+                        </p>
+                    </div>
+                    <div class="lead-bid-body clearfix">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="table-responsive">
+                                    <table class="table table-bid">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Название компании
+                                                </th>
+                                                <th>
+                                                    Сроки
+                                                </th>
+                                                <th>
+                                                    Цена
+                                                </th>
+                                                <th>
+                                                    &nbsp;
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if($bidCompany != '')
+                                                @foreach($bidCompany as $bid)
+                                                    @if(!empty($bid->name_company))
+                                                        <tr>
+                                                            <td>
+                                                                <p>
+                                                                    {{$bid->name_company}}
+                                                                </p>
+                                                                <a href="#">Подробнее</a>
+                                                            </td>
+                                                            <td>
+                                                                <p>
+                                                                    {{$bid->timeline}}
+                                                                </p>
+                                                            </td>
+                                                            <td>
+                                                                <p>
+                                                                    {{$bid->price}}
+                                                                </p>
+                                                            </td>
+                                                            <td class="text-right">
+                                                                <button type="button" class="btn btn-default" name="button">Выбрать</button>
+                                                            </td>
+                                                        </tr>
+                                                    @endif
+                                                @endforeach
+                                            @endif
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endcan
+        @if (Auth::user()->role == 'admin' || Auth::user()->role == 'company')
+            <div class="row lead-row">
+                <div class="col-md-12 body-panel">
+                    @if($bidCompany != '')
+                        @foreach($bidCompany as $bid)
+                            @if($bid->company_id == Auth::user()->company->id)
+                                @if(!empty($bid->name_company))
+                                    <div class="lead-bid-head company">
+                                        <p>
+                                            Вы отправили свое предложение
+                                        </p>
+                                    </div>
+                                    {{ $flag = '&nbsp;' }}
+                                @else
+                                    {{ $flag = '' }}
+                                @endif
+                            @endif
+                        @endforeach
+                        @if($flag !== '&nbsp;')
+                            <div class="lead-bid-head company">
+                                <p>
+                                    Отправить предложение
+                                </p>
+                            </div>
+                            <div class="lead-bid-body clearfix">
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <form class="add-bid-form company" action="/add-bid" method="post">
+                                            {!! csrf_field() !!}
+                                            <input type="text" name="timeline" value="" placeholder="Срок выполнения">
+                                            <input type="text" name="price" value="" placeholder="Цена выполнения">
+                                            <textarea name="description_done" rows="4" placeholder="Описание выполнения"></textarea>
+                                            <textarea name="unic_bid" rows="4" placeholder="Уникальное предложение"></textarea>
+                                            <input type="submit" name="submit" value="Отправить">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    @endif
+                </div>
+            </div>
+        @endif
+
     </div>
 </section>
 @endsection

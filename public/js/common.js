@@ -23,6 +23,24 @@ $(document).ready(function(){
     //Company dashboard
     var pay_lead_btn = $('.pay_lead_submit');
 
+    $(function() {
+        var newSelection = "";
+
+        $(".sub-menu a").click(function(){
+            $(".sub-menu a").removeClass("current");
+            $(this).addClass("current");
+
+            newSelection = $(this).attr("rel");
+
+            $(".row-leads").not("."+newSelection).slideUp();
+            $("."+newSelection).slideDown();
+
+            $(".row-leads").fadeTo(600, 1);
+
+        });
+
+    });
+
     $(pay_lead_btn).click(function (){
         var parentForm = $(this).parent();
         var urlForm = $(parentForm).attr('action');

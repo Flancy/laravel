@@ -36,7 +36,7 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 @if (Auth::guest())
-
+                    <!-- Guest -->
                 @else
                     <ul class="nav navbar-nav">
                         <li><a href="{{ url('/home') }}">Главная</a></li>
@@ -56,15 +56,12 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 <span>
-                                    @can('admin')
-                                        {{ Auth::user()->company->fio }}
-                                    @endcan
                                     @can('lead')
                                         {{ Auth::user()->lead->fio }}
                                     @endcan
-                                    @can('company')
+                                    @if (Auth::user()->role == 'admin' || Auth::user()->role == 'company')
                                         {{ Auth::user()->company->fio }}
-                                    @endcan
+                                    @endif
                                 </span>
                             </a>
 

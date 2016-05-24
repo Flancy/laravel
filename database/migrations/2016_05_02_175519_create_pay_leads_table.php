@@ -19,6 +19,11 @@ class CreatePayLeadsTable extends Migration
             $table->integer('company_id')->unsigned();
             $table->foreign('company_id')->references('id')->on('users');
             $table->boolean('buy_lead')->unsigned();
+            $table->string('name_company');
+            $table->string('timeline');
+            $table->string('price');
+            $table->string('description_done');
+            $table->string('unic_bid');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Validator;
 use Auth;
+use App\Company;
 use App\Lead;
 use App\PayLead;
 
@@ -57,9 +58,10 @@ class LeadController extends Controller
      public function showLeadCart(Request $request, Lead $leadModel, $id)
      {
          $url = url('/lead/').'/'.$id;
-         $user = Lead::find($id);
+         $user = Lead::findOrFail($id);
+         $bidCompany = $this->showBidCompany($id);
 
-         return view('lead.dashboard', ['leadInfo' => $user]);
+         return view('lead.dashboard', ['leadInfo' => $user, 'bidCompany' => $bidCompany]);
      }
 
      public function showLeadInfo(Request $request, $id)
@@ -81,6 +83,10 @@ class LeadController extends Controller
          }
      }
 
+     public function showBidCompany($id)
+     {
+         return PayLead::where('lead_id', $id)->where('timeline', '!=', 1)->get();
+     }
     /**
      * Show the form for editing the specified resource.
      *

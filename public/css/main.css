@@ -117,8 +117,9 @@ input:-moz-placeholder {
 .register-lead h1,
 .login h1,
 .dashboard-company h1,
-.dashboard-lead h1,
-.settings-company h1 {
+.settings-company h1,
+.debit-company h1,
+.dashboard-lead h1 {
   margin-bottom: 30px;
   font-family: "Roboto";
   font-weight: 100;
@@ -275,26 +276,32 @@ input:-moz-placeholder {
 }
 .dashboard-company .control-panel .wrapper,
 .dashboard-company .body-panel .wrapper,
-.dashboard-lead .body-panel,
 .settings-company .control-panel .wrapper,
-.settings-company .body-panel .wrapper {
+.settings-company .body-panel .wrapper,
+.debit-company .control-panel .wrapper,
+.debit-company .body-panel .wrapper,
+.dashboard-lead .lead-row .body-panel {
   padding: 15px 0px;
   box-shadow: 0px 0px 8px rgba(0,0,0,0.6);
 }
 .dashboard-company .control-panel .wrapper ul,
 .dashboard-company .body-panel .wrapper ul,
-.dashboard-lead .body-panel ul,
 .settings-company .control-panel .wrapper ul,
-.settings-company .body-panel .wrapper ul {
+.settings-company .body-panel .wrapper ul,
+.debit-company .control-panel .wrapper ul,
+.debit-company .body-panel .wrapper ul,
+.dashboard-lead .lead-row .body-panel ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 .dashboard-company .control-panel .wrapper ul li a,
 .dashboard-company .body-panel .wrapper ul li a,
-.dashboard-lead .body-panel ul li a,
 .settings-company .control-panel .wrapper ul li a,
-.settings-company .body-panel .wrapper ul li a {
+.settings-company .body-panel .wrapper ul li a,
+.debit-company .control-panel .wrapper ul li a,
+.debit-company .body-panel .wrapper ul li a,
+.dashboard-lead .lead-row .body-panel ul li a {
   padding: 5px 20px;
   display: block;
   font-family: "Roboto";
@@ -304,29 +311,64 @@ input:-moz-placeholder {
 }
 .dashboard-company .control-panel .wrapper ul li a.current,
 .dashboard-company .body-panel .wrapper ul li a.current,
-.dashboard-lead .body-panel ul li a.current,
 .settings-company .control-panel .wrapper ul li a.current,
-.settings-company .body-panel .wrapper ul li a.current {
+.settings-company .body-panel .wrapper ul li a.current,
+.debit-company .control-panel .wrapper ul li a.current,
+.debit-company .body-panel .wrapper ul li a.current,
+.dashboard-lead .lead-row .body-panel ul li a.current {
   padding-left: 12px;
   border-left: 8px solid #dd2828;
 }
 .dashboard-company .control-panel .wrapper ul li a:hover,
 .dashboard-company .body-panel .wrapper ul li a:hover,
-.dashboard-lead .body-panel ul li a:hover,
 .settings-company .control-panel .wrapper ul li a:hover,
 .settings-company .body-panel .wrapper ul li a:hover,
+.debit-company .control-panel .wrapper ul li a:hover,
+.debit-company .body-panel .wrapper ul li a:hover,
+.dashboard-lead .lead-row .body-panel ul li a:hover,
 .dashboard-company .control-panel .wrapper ul li a:focus,
 .dashboard-company .body-panel .wrapper ul li a:focus,
-.dashboard-lead .body-panel ul li a:focus,
 .settings-company .control-panel .wrapper ul li a:focus,
 .settings-company .body-panel .wrapper ul li a:focus,
+.debit-company .control-panel .wrapper ul li a:focus,
+.debit-company .body-panel .wrapper ul li a:focus,
+.dashboard-lead .lead-row .body-panel ul li a:focus,
 .dashboard-company .control-panel .wrapper ul li a:active,
 .dashboard-company .body-panel .wrapper ul li a:active,
-.dashboard-lead .body-panel ul li a:active,
 .settings-company .control-panel .wrapper ul li a:active,
-.settings-company .body-panel .wrapper ul li a:active {
+.settings-company .body-panel .wrapper ul li a:active,
+.debit-company .control-panel .wrapper ul li a:active,
+.debit-company .body-panel .wrapper ul li a:active,
+.dashboard-lead .lead-row .body-panel ul li a:active {
   background-color: rgba(0,0,0,0.07);
   text-decoration: none;
+}
+.dashboard-company .control-panel .wrapper ul ul li,
+.dashboard-company .body-panel .wrapper ul ul li,
+.settings-company .control-panel .wrapper ul ul li,
+.settings-company .body-panel .wrapper ul ul li,
+.debit-company .control-panel .wrapper ul ul li,
+.debit-company .body-panel .wrapper ul ul li,
+.dashboard-lead .lead-row .body-panel ul ul li {
+  cursor: pointer;
+}
+.dashboard-company .control-panel .wrapper ul ul li a,
+.dashboard-company .body-panel .wrapper ul ul li a,
+.settings-company .control-panel .wrapper ul ul li a,
+.settings-company .body-panel .wrapper ul ul li a,
+.debit-company .control-panel .wrapper ul ul li a,
+.debit-company .body-panel .wrapper ul ul li a,
+.dashboard-lead .lead-row .body-panel ul ul li a {
+  padding-left: 40px;
+}
+.dashboard-company .control-panel .wrapper ul ul li a.current,
+.dashboard-company .body-panel .wrapper ul ul li a.current,
+.settings-company .control-panel .wrapper ul ul li a.current,
+.settings-company .body-panel .wrapper ul ul li a.current,
+.debit-company .control-panel .wrapper ul ul li a.current,
+.debit-company .body-panel .wrapper ul ul li a.current,
+.dashboard-lead .lead-row .body-panel ul ul li a.current {
+  padding-left: 32px;
 }
 .dashboard-company .body-panel .wrapper {
   margin-right: -15px;
@@ -427,52 +469,6 @@ input:-moz-placeholder {
 .dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-footer .not_pay_lead button:hover,
 .dashboard-company .body-panel .wrapper .row-leads .cart-right .cart-lead-footer .not_pay_lead button:active {
   box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
-}
-.dashboard-lead .body-panel {
-  padding: 0;
-}
-.dashboard-lead .body-panel .lead-head p {
-  padding: 20px 20px;
-  font-family: "Roboto";
-  font-weight: normal;
-  font-size: 24px;
-  color: #323232;
-}
-.dashboard-lead .body-panel .lead-body {
-  padding: 0 5px;
-}
-.dashboard-lead .body-panel .lead-body p {
-  display: inline-block;
-  font-family: "Roboto";
-  font-weight: normal;
-  font-size: 16px;
-  color: #555;
-}
-.dashboard-lead .body-panel .lead-body .cart-lead-attribute {
-  margin: 0;
-}
-.dashboard-lead .body-panel .lead-body .cart-lead-attribute i {
-  margin-right: 5px;
-  color: #555;
-}
-.dashboard-lead .body-panel .lead-body .cart-lead-attribute span {
-  font-size: 14px;
-  color: #333;
-}
-.dashboard-lead .body-panel .lead-footer {
-  padding: 15px 5px 20px 5px;
-}
-.dashboard-lead .body-panel .lead-footer .left-footer p {
-  color: #333;
-  line-height: normal;
-  font-family: "Roboto";
-  font-weight: normal;
-}
-.dashboard-lead .body-panel .lead-footer .left-footer p.p-name {
-  font-size: 18px;
-}
-.dashboard-lead .body-panel .lead-footer .left-footer p.p-value {
-  font-size: 16px;
 }
 .settings-company .body-panel .wrapper {
   padding: 0;
@@ -587,6 +583,225 @@ input:-moz-placeholder {
 .settings-company .body-panel .wrapper .border-setting {
   content: " ";
   border-bottom: 1px solid #ccc;
+}
+.debit-company .body-panel .wrapper {
+  padding: 0;
+  margin-right: -15px;
+}
+.debit-company .body-panel .wrapper .debit-panel-head {
+  padding: 10px 5px;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 20px;
+  color: #555;
+}
+.debit-company .body-panel .wrapper .debit-panel-head p {
+  margin: 0;
+}
+.debit-company .body-panel .wrapper .debit-panel-body {
+  padding: 0px 5px;
+}
+.debit-company .body-panel .wrapper .debit-panel-body p {
+  margin-bottom: 20px;
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 16px;
+}
+.debit-company .body-panel .wrapper .debit-panel-body .add-debit-form input[type="text"] {
+  display: inline-block;
+  padding: 4px 0px;
+  text-align: center;
+  margin-right: 4px;
+  width: 140px;
+  outline: none;
+  border: none;
+  border-bottom: 1px dashed #555;
+  background-color: transparent;
+  text-overflow: ellipsis;
+  color: #555;
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 18px;
+}
+.debit-company .body-panel .wrapper .debit-panel-body .add-debit-form input[type="text"]:focus {
+  border-bottom: 1px solid #64dd17;
+}
+.debit-company .body-panel .wrapper .debit-panel-body .add-debit-form input[type="button"] {
+  display: inline-block;
+  border: none;
+  border-radius: 0;
+  padding: 6px 30px;
+  color: #fff;
+  outline: none;
+  background-color: #64dd17;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 14px;
+  box-shadow: 0px 0px 6px rgba(0,0,0,0.4);
+}
+.debit-company .body-panel .wrapper .debit-panel-body .add-debit-form input[type="button"]:hover,
+.debit-company .body-panel .wrapper .debit-panel-body .add-debit-form input[type="button"]:focus,
+.debit-company .body-panel .wrapper .debit-panel-body .add-debit-form input[type="button"]:active {
+  background-color: #76ff03;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
+}
+.debit-company .body-panel .wrapper .debit-panel-body .add-debit-form span {
+  display: inline-block;
+  color: #555;
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 16px;
+}
+.dashboard-lead .lead-row {
+  padding-bottom: 40px;
+}
+.dashboard-lead .lead-row .body-panel {
+  padding: 0;
+}
+.dashboard-lead .lead-row .body-panel .lead-head p,
+.dashboard-lead .lead-row .body-panel .lead-bid-head p {
+  padding: 20px 20px;
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 24px;
+  color: #666;
+}
+.dashboard-lead .lead-row .body-panel .lead-body {
+  padding: 0 5px;
+}
+.dashboard-lead .lead-row .body-panel .lead-body p {
+  display: inline-block;
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 16px;
+  color: #323232;
+}
+.dashboard-lead .lead-row .body-panel .lead-body .cart-lead-attribute {
+  margin: 0;
+}
+.dashboard-lead .lead-row .body-panel .lead-body .cart-lead-attribute i {
+  margin-right: 5px;
+  color: #555;
+}
+.dashboard-lead .lead-row .body-panel .lead-body .cart-lead-attribute span {
+  font-size: 14px;
+  color: #323232;
+}
+.dashboard-lead .lead-row .body-panel .lead-footer {
+  padding: 15px 5px 20px 5px;
+}
+.dashboard-lead .lead-row .body-panel .lead-footer .left-footer p {
+  color: #323232;
+  line-height: normal;
+  font-family: "Roboto";
+  font-weight: normal;
+}
+.dashboard-lead .lead-row .body-panel .lead-footer .left-footer p.p-name {
+  font-size: 18px;
+}
+.dashboard-lead .lead-row .body-panel .lead-footer .left-footer p.p-value {
+  font-size: 16px;
+}
+.dashboard-lead .lead-row .body-panel .lead-bid-head p {
+  padding-bottom: 0px;
+  padding-top: 10px;
+  font-size: 18px;
+}
+.dashboard-lead .lead-row .body-panel .lead-bid-head.company {
+  border-bottom: 1px solid #ccc;
+}
+.dashboard-lead .lead-row .body-panel .lead-bid-body .table-bid {
+  margin-bottom: 0;
+}
+.dashboard-lead .lead-row .body-panel .lead-bid-body .table-bid th,
+.dashboard-lead .lead-row .body-panel .lead-bid-body .table-bid td {
+  padding: 10px 20px;
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 14px;
+  vertical-align: middle;
+}
+.dashboard-lead .lead-row .body-panel .lead-bid-body .table-bid th p,
+.dashboard-lead .lead-row .body-panel .lead-bid-body .table-bid td p {
+  margin: 0;
+  display: inline;
+}
+.dashboard-lead .lead-row .body-panel .lead-bid-body .table-bid td {
+  padding: 15px 20px;
+}
+.dashboard-lead .lead-row .body-panel .lead-bid-body .table-bid td button {
+  display: inline-block;
+  border: none;
+  border-radius: 0;
+  padding: 6px 30px;
+  color: #fff;
+  outline: none;
+  background-color: #64dd17;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 16px;
+  box-shadow: 0px 0px 6px rgba(0,0,0,0.4);
+}
+.dashboard-lead .lead-row .body-panel .lead-bid-body .table-bid td button:hover,
+.dashboard-lead .lead-row .body-panel .lead-bid-body .table-bid td button:focus,
+.dashboard-lead .lead-row .body-panel .lead-bid-body .table-bid td button:active {
+  background-color: #76ff03;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
+}
+.dashboard-lead .lead-row .body-panel .lead-bid-body .add-bid-form.company {
+  padding: 20px;
+}
+.dashboard-lead .lead-row .body-panel .lead-bid-body .add-bid-form.company input {
+  display: block;
+  padding: 4px 0px;
+  text-align: center;
+  margin-bottom: 10px;
+  outline: none;
+  border: none;
+  border-bottom: 1px dashed #555;
+  background-color: transparent;
+  text-overflow: ellipsis;
+  color: #555;
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 18px;
+}
+.dashboard-lead .lead-row .body-panel .lead-bid-body .add-bid-form.company input:focus {
+  border-bottom: 1px solid #64dd17;
+}
+.dashboard-lead .lead-row .body-panel .lead-bid-body .add-bid-form.company textarea {
+  display: block;
+  margin-bottom: 10px;
+  padding: 6px 3px;
+  outline: none;
+  border: 1px dashed #555;
+  background-color: transparent;
+  color: #555;
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 18px;
+}
+.dashboard-lead .lead-row .body-panel .lead-bid-body .add-bid-form.company textarea:focus {
+  border: 1px solid #64dd17;
+}
+.dashboard-lead .lead-row .body-panel .lead-bid-body .add-bid-form.company input[type="submit"] {
+  display: inline-block;
+  border: none;
+  border-radius: 0;
+  padding: 6px 30px;
+  color: #fff;
+  outline: none;
+  background-color: #64dd17;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 14px;
+  box-shadow: 0px 0px 6px rgba(0,0,0,0.4);
+}
+.dashboard-lead .lead-row .body-panel .lead-bid-body .add-bid-form.company input[type="submit"]:hover,
+.dashboard-lead .lead-row .body-panel .lead-bid-body .add-bid-form.company input[type="submit"]:focus,
+.dashboard-lead .lead-row .body-panel .lead-bid-body .add-bid-form.company input[type="submit"]:active {
+  background-color: #76ff03;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
 }
 @import "media.css";
 /*# sourceMappingURL=css/main.css.map */

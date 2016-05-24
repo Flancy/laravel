@@ -38,5 +38,9 @@ Route::group(['middleware' => 'company', 'as' => 'settings'], function()
 
     Route::post('/settings', 'User\SettingController@edit');
 
+    Route::get('/debit', 'User\DebitController@index');
+
     Route::post('/pay-lead', 'PayLeadConroller@store');
+
+    Route::post('/add-bid', 'PayLeadConroller@update');
 });

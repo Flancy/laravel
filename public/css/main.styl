@@ -112,7 +112,7 @@ input:-moz-placeholder
                 color: #ffffff !important
                 background-color: rgba(255,255,255,0.1) !important
                 border-color: #dd2828 !important
-
+//Register and Auth
 .register
     h1
         margin-bottom: 30px
@@ -247,7 +247,7 @@ input:-moz-placeholder
                 &:active
                     text-decoration: none
                     border-bottom: 1px dashed #76ff03
-
+//Company dashboard
 .dashboard-company
     h1
         @extends .register h1
@@ -275,6 +275,13 @@ input:-moz-placeholder
                         &:active
                             background-color: rgba(0, 0, 0, 0.07);
                             text-decoration: none
+                ul
+                    li
+                        cursor: pointer
+                        a
+                            padding-left: 40px
+                            &.current
+                                padding-left: 32px
 
     .body-panel
         .wrapper
@@ -362,48 +369,7 @@ input:-moz-placeholder
                                 &:active
                                     box-shadow: 0px 4px 12px rgba(0,0,0,0.4)
 
-.dashboard-lead
-    h1
-        @extends .register h1
-    .body-panel
-        @extends .dashboard-company .control-panel .wrapper
-        padding: 0
-        .lead-head
-            p
-                padding: 20px 20px
-                font-family: $robotoFamily
-                font-weight: $fontNormal
-                font-size: 24px
-                color: #323232
-        .lead-body
-            padding: 0 5px
-            p
-                display: inline-block
-                font-family: $robotoFamily
-                font-weight: $fontNormal
-                font-size: 16px
-                color: #555555
-            .cart-lead-attribute
-                margin: 0
-                i
-                    margin-right: 5px
-                    color: #555555
-                span
-                    font-size: 14px
-                    color: #333333
-        .lead-footer
-            padding: 15px 5px 20px 5px
-            .left-footer
-                p
-                    color: #333333
-                    line-height: normal
-                    font-family: $robotoFamily
-                    font-weight: $fontNormal
-                    &.p-name
-                        font-size: 18px
-                    &.p-value
-                        font-size: 16px
-
+//Company settings
 .settings-company
     h1
         @extends .register h1
@@ -509,5 +475,207 @@ input:-moz-placeholder
             .border-setting
                 content: " ";
                 border-bottom: 1px solid #cccccc
+
+.debit-company
+    h1
+        @extends .register h1
+    .control-panel
+        .wrapper
+            @extends .dashboard-company .control-panel .wrapper
+    .body-panel
+        .wrapper
+            @extends .dashboard-company .control-panel .wrapper
+            padding: 0
+            margin-right: -15px
+            .debit-panel-head
+                padding: 10px 5px
+                font-family: $robotoFamily
+                font-weight: $fontMedium
+                font-size: 20px
+                color: #555555
+                p
+                    margin: 0
+            .debit-panel-body
+                padding: 0px 5px
+                p
+                    margin-bottom: 20px
+                    font-family: $robotoFamily
+                    font-weight: $fontNormal
+                    font-size: 16px
+                .add-debit-form
+                    input[type="text"]
+                        display: inline-block
+                        padding: 4px 0px
+                        text-align: center
+                        margin-right: 4px
+                        width: 140px
+                        outline: none
+                        border: none
+                        border-bottom: 1px dashed #555555
+                        background-color: transparent
+                        text-overflow: ellipsis
+                        color: #555555
+                        font-family: $robotoFamily
+                        font-weight: $fontNormal
+                        font-size: 18px
+                        &:focus
+                            border-bottom: 1px solid #64dd17
+                    input[type="button"]
+                        display: inline-block
+                        border: none
+                        border-radius: 0
+                        padding: 6px 30px
+                        color: #ffffff
+                        outline: none
+                        background-color: #64dd17
+                        font-family: $robotoFamily
+                        font-weight: $fontMedium
+                        font-size: 14px
+                        box-shadow: 0px 0px 6px rgba(0,0,0,0.4)
+                        &:hover,
+                        &:focus,
+                        &:active
+                            background-color: #76ff03
+                            box-shadow: 0px 4px 12px rgba(0,0,0,0.4)
+                    span
+                        display: inline-block
+                        color: #555555
+                        font-family: $robotoFamily
+                        font-weight: $fontNormal
+                        font-size: 16px
+
+//Lead dashboard
+.dashboard-lead
+    h1
+        @extends .register h1
+    .lead-row
+        padding-bottom: 40px
+        .body-panel
+            @extends .dashboard-company .control-panel .wrapper
+            padding: 0
+            .lead-head
+                p
+                    padding: 20px 20px
+                    font-family: $robotoFamily
+                    font-weight: $fontNormal
+                    font-size: 24px
+                    color: #666666
+            .lead-body
+                padding: 0 5px
+                p
+                    display: inline-block
+                    font-family: $robotoFamily
+                    font-weight: $fontNormal
+                    font-size: 16px
+                    color: #323232
+                .cart-lead-attribute
+                    margin: 0
+                    i
+                        margin-right: 5px
+                        color: #555555
+                    span
+                        font-size: 14px
+                        color: #323232
+            .lead-footer
+                padding: 15px 5px 20px 5px
+                .left-footer
+                    p
+                        color: #323232
+                        line-height: normal
+                        font-family: $robotoFamily
+                        font-weight: $fontNormal
+                        &.p-name
+                            font-size: 18px
+                        &.p-value
+                            font-size: 16px
+            .lead-bid-head
+                p
+                    @extends .dashboard-lead .lead-row .body-panel .lead-head p
+                    padding-bottom: 0px
+                    padding-top: 10px
+                    font-size: 18px
+                &.company
+                    border-bottom: 1px solid #cccccc
+            .lead-bid-body
+                .table-bid
+                    margin-bottom: 0
+                    th,
+                    td
+                        padding: 10px 20px
+                        font-family: $robotoFamily
+                        font-weight: $fontNormal
+                        font-size: 14px
+                        vertical-align: middle
+                        p
+                            margin: 0
+                            display: inline
+                    td
+                        padding: 15px 20px
+                        button
+                            display: inline-block
+                            border: none
+                            border-radius: 0
+                            padding: 6px 30px
+                            color: #ffffff
+                            outline: none
+                            background-color: #64dd17
+                            font-family: $robotoFamily
+                            font-weight: $fontMedium
+                            font-size: 16px
+                            box-shadow: 0px 0px 6px rgba(0,0,0,0.4)
+                            &:hover,
+                            &:focus,
+                            &:active
+                                background-color: #76ff03
+                                box-shadow: 0px 4px 12px rgba(0,0,0,0.4)
+                .add-bid-form
+                    &.company
+                        padding: 20px
+                        input
+                            display: block
+                            padding: 4px 0px
+                            text-align: center
+                            margin-bottom: 10px
+                            outline: none
+                            border: none
+                            border-bottom: 1px dashed #555555
+                            background-color: transparent
+                            text-overflow: ellipsis
+                            color: #555555
+                            font-family: $robotoFamily
+                            font-weight: $fontNormal
+                            font-size: 18px
+                            &:focus
+                                border-bottom: 1px solid #64dd17
+                        textarea
+                            display: block
+                            margin-bottom: 10px
+                            padding: 6px 3px
+                            outline: none
+                            border: 1px dashed #555555
+                            background-color: transparent
+                            color: #555555
+                            font-family: $robotoFamily
+                            font-weight: $fontNormal
+                            font-size: 18px
+                            &:focus
+                                border: 1px solid #64dd17
+                        input[type="submit"]
+                            display: inline-block
+                            border: none
+                            border-radius: 0
+                            padding: 6px 30px
+                            color: #ffffff
+                            outline: none
+                            background-color: #64dd17
+                            font-family: $robotoFamily
+                            font-weight: $fontMedium
+                            font-size: 14px
+                            box-shadow: 0px 0px 6px rgba(0,0,0,0.4)
+                            &:hover,
+                            &:focus,
+                            &:active
+                                background-color: #76ff03
+                                box-shadow: 0px 4px 12px rgba(0,0,0,0.4)
 
 @import "media.css"

@@ -11,6 +11,7 @@
                     <ul>
                         <li><a href="/">Заявки</a></li>
                         <li><a href="/settings" class="current">Настройки</a></li>
+                        <li><a href="/debit">Счет</a></li>
                     </ul>
                 </div>
             </div>
